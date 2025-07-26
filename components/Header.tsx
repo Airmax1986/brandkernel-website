@@ -5,7 +5,6 @@ import GridContainer from "./GridContainer";
 export default function Header() {
   return (
     <header className="absolute top-0 left-0 right-0 z-20 py-8">
-      {/* This component now correctly uses text-header which is configured to 1rem */}
       <GridContainer className="items-center text-white text-header font-bold">
         {/* Left: Logo */}
         <div className="col-span-2">
@@ -23,7 +22,8 @@ export default function Header() {
             <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
             <Link href="/blog" className="hover:text-gray-300 transition-colors">Blog</Link>
           </div>
-          <Link href="/waitlist" className="bg-white text-black px-5 py-2 rounded-md hover:bg-gray-200 transition-colors">
+          {/* THE FIX: Button-Styling entfernt, jetzt reiner Text-Link */}
+          <Link href="/waitlist" className="hover:text-gray-300 transition-colors">
             Join Waitlist
           </Link>
         </div>
