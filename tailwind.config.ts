@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        // THE FIX: Margin exakt auf 0.5rem gesetzt
-        'page-margin': '0.5rem',
+        // THE FIX: Margin exakt auf 1rem gesetzt
+        'page-margin': '1rem',
         'page-gutter': '1.5rem',
       },
       fontSize: {
