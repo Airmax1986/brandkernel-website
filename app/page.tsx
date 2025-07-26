@@ -1,9 +1,13 @@
+// app/page.tsx
+
 import Hero from "@/components/Hero";
+import WaitlistForm from "@/components/WaitlistForm";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white">
+    <div>
       <Hero />
+      <WaitlistForm />
     </div>
   );
 }
