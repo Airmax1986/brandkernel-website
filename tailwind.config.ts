@@ -13,14 +13,12 @@ const config: Config = {
         'page-margin': '1.5625rem', // 25px
         'page-gutter': '1.5rem',    // 24px
       },
-      // THE FIX: Adding precise font and line-height values
+      // THE FIX: Font sizes updated to new specifications
       fontSize: {
-        'header': '1.5625rem', // 25px
-        'hero': '4.0625rem',   // 65px
+        'header': '1rem',   // Updated to 1rem
+        'hero': '3rem',     // Updated to 3rem
       },
-      lineHeight: {
-        'hero': '3.125rem',    // 50px
-      }
+      // Line height is no longer needed as a custom value
     },
   },
   plugins: [],
