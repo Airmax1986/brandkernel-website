@@ -13,12 +13,13 @@ const config: Config = {
         'page-margin': '1.5625rem', // 25px
         'page-gutter': '1.5rem',    // 24px
       },
-      colors: {
-        'brand-orange': {
-          DEFAULT: '#FD7C2D',
-          light: '#FFDF95',
-        },
-        'brand-blue': '#96A0C8',
+      // THE FIX: Adding precise font and line-height values
+      fontSize: {
+        'header': '1.5625rem', // 25px
+        'hero': '4.0625rem',   // 65px
+      },
+      lineHeight: {
+        'hero': '3.125rem',    // 50px
       }
     },
   },
