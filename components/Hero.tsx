@@ -6,19 +6,6 @@ import WaitlistForm from "./WaitlistForm";
 export default function Hero() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen text-center px-4">
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-orange-300 to-transparent opacity-50 rounded-full blur-3xl"
-        style={{ width: '50vw', height: '50vh', top: '25vh', left: '25vw' }}
-        animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.5, 0.6, 0.5],
-        }}
-        transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "mirror",
-        }}
-      />
       <motion.h1
         className="text-5xl md:text-7xl font-bold mb-4 z-10"
         initial={{ opacity: 0, y: 20 }}
@@ -41,7 +28,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="z-10"
       >
-        <button className="bg-orange-500 text-white px-6 py-3 rounded-md flex items-center space-x-2">
+        <button className="bg-orange-500 text-white px-6 py-3 rounded-md flex items-center space-x-2 hover:bg-orange-600 transition-colors">
           <span>Start your brand discovery now – receive your personal brand book after.</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
