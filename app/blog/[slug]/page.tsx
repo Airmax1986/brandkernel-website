@@ -5,16 +5,13 @@ import { Post as PostType } from "@/lib/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-// This function pre-builds all the blog post pages for speed.
-// Its structure is correct and does not need to change.
+// This function now receives the correctly formatted data.
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugsGraphQL();
   return slugs;
 }
 
-// THE FIX IS HERE:
-// Instead of using a custom 'PageProps' type, we define the props shape directly.
-// This is more explicit and avoids conflicts with Next.js's internal types.
+// This component definition is correct and will now work.
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const post: PostType | null = await getPostGraphQL(params.slug);
 
