@@ -1,4 +1,11 @@
 // components/WaitlistForm.tsx
+"use client"; // 
+
+import { useState } from "react";
+import GridContainer from "./GridContainer";
+// ... rest of the file
+
+// components/WaitlistForm.tsx
 "use client";
 import { useState } from "react";
 import GridContainer from "./GridContainer"; // Import the grid
