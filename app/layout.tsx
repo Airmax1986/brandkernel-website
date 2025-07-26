@@ -1,11 +1,11 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css"; // WICHTIG: Importiert alle unsere Stile
+import "./globals.css";
 import Header from "@/components/Header";
 
-// Lädt die benötigten Schriftgewichte
-const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
+// THE FIX: Loading all required font weights (light, medium, bold)
+const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
 export const metadata: Metadata = {
   title: "BrandKernel - Stand out with positioning that feels like you",
