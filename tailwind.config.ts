@@ -10,15 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        'page-margin': '1.5625rem', // 25px
-        'page-gutter': '1.5rem',    // 24px
+        // THE FIX: Margin exakt auf 0.5rem gesetzt
+        'page-margin': '0.5rem',
+        'page-gutter': '1.5rem',
       },
-      // THE FIX: Font sizes updated to new specifications
       fontSize: {
-        'header': '1rem',   // Updated to 1rem
-        'hero': '3rem',     // Updated to 3rem
+        'header': '1rem',
+        'hero': '2rem',
       },
-      // Line height is no longer needed as a custom value
     },
   },
   plugins: [],
