@@ -1,13 +1,8 @@
 // components/Hero.tsx
-"use client"; 
+"use client";
 
 import { motion } from "framer-motion";
 import GridContainer from "./GridContainer";
-// ... rest of the file
-
-// components/Hero.tsx
-import { motion } from "framer-motion";
-import GridContainer from "./GridContainer"; // Import the grid
 
 export default function Hero() {
   return (
