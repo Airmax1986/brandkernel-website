@@ -1,26 +1,21 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  /*
-    Replicates the background image with a performant CSS gradient.
-    - Outer color: #96A0C8
-    - Mid-color (glow): #FFDF95
-    - Core color (center): #FD7C2D
-  */
-  background-color: #96A0C8;
+  background-color: #96A0C8; /* Fallback-Farbe */
   background-image: radial-gradient(
     circle at 50% 50%,
     #fd7c2d 0%,
     #ffdf95 30%,
     #96a0c8 65%
   );
-  color: white; /* Set default text color to white for better contrast */
+  color: white;
 }
 
-/* Ensure blog post cards have a solid background for readability */
+/* Stellt sicher, dass Blog-Posts auf dem Gradienten lesbar sind */
 .blog-post-card {
     background-color: white;
-    color: #333; /* Darker text for white background */
+    color: #333;
 }
