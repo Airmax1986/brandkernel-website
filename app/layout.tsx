@@ -1,11 +1,11 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Import the 'Inter' font
-import "./globals.css";
+import { Inter } from "next/font/google";
+import "./globals.css"; // WICHTIG: Importiert alle unsere Stile
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
-// Initialize the Inter font with the 'latin' subset
-const inter = Inter({ subsets: ["latin"] });
+// Lädt die benötigten Schriftgewichte
+const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
 
 export const metadata: Metadata = {
   title: "BrandKernel - Stand out with positioning that feels like you",
@@ -18,12 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Apply the font's class name to the <body> tag
     <html lang="en">
       <body className={inter.className}>
         <Header />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
