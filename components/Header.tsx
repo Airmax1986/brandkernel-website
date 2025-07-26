@@ -1,67 +1,30 @@
-"use client";
+// components/Header.tsx
+import Link from "next/link";
+import GridContainer from "./GridContainer"; // Import the grid
 
-import { motion } from "framer-motion";
-import WaitlistForm from "./WaitlistForm";
-
-export default function Hero() {
+export default function Header() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen text-center px-4">
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-orange-300 to-transparent opacity-50 rounded-full blur-3xl"
-        style={{ width: '50vw', height: '50vh', top: '25vh', left: '25vw' }}
-        animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.5, 0.6, 0.5],
-        }}
-        transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "mirror",
-        }}
-      />
-      <motion.h1
-        className="text-5xl md:text-7xl font-bold mb-4 z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Finally stand out – with positioning that feels like you.
-      </motion.h1>
-      <motion.p
-        className="text-xl md:text-2xl max-w-4xl mb-8 z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="z-10"
-      >
-        <button className="bg-orange-500 text-white px-6 py-3 rounded-md flex items-center space-x-2">
-          <span>Start your brand discovery now – receive your personal brand book after.</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </button>
-      </motion.div>
-      <div className="absolute bottom-8 w-full px-4">
-        <WaitlistForm />
-      </div>
-    </div>
+    <header className="absolute top-0 left-0 right-0 z-20 py-8">
+      <GridContainer className="items-center text-white">
+        {/* Left: Logo spans 2 columns */}
+        <div className="col-span-2 text-2xl font-bold">
+          <Link href="/">BrandKernel</Link>
+        </div>
+
+        {/* Center: Main Navigation spans 4 columns */}
+        <nav className="hidden md:flex col-span-4 items-center justify-center space-x-8 text-lg">
+          <Link href="/#features" className="hover:text-gray-300 transition-colors">How it works, Features, Pricing, Manifest</Link>
+        </nav>
+
+        {/* Right: Secondary Nav spans 2 columns */}
+        <div className="hidden md:flex col-span-2 items-center justify-end space-x-8 text-lg">
+          <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+          <Link href="/blog" className="hover:text-gray-300 transition-colors">Blog</Link>
+          <Link href="/waitlist" className="bg-white text-black px-5 py-2 rounded-md font-semibold hover:bg-gray-200 transition-colors">
+            Join Waitlist
+          </Link>
+        </div>
+      </GridContainer>
+    </header>
   );
 }
