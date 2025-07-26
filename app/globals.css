@@ -4,18 +4,18 @@
 @tailwind utilities;
 
 body {
-  background-color: #96A0C8; /* Fallback color */
-  /* THE FIX: Tighter color stops for a smaller, smoother effect */
+  background-color: #96A0C8; /* Fallback-Farbe */
+  /* THE FIX: Engere Farbübergänge für einen kleineren, konzentrierteren Verlauf */
   background-image: radial-gradient(
     circle at 50% 50%,
-    #FD7C2D 0%,      /* Core orange */
-    #FFDF95 20%,     /* Softer glow, starts fading sooner */
-    #96A0C8 55%      /* Fades completely to blue by 55% of the radius */
+    #FD7C2D 0%,      /* Kern */
+    #FFDF95 15%,     /* Leuchten verblasst früher */
+    #96A0C8 45%      /* Übergang zu Blau ist viel früher abgeschlossen */
   );
   color: white;
 }
 
-/* Ensures blog post cards are readable on the gradient */
+/* Stellt sicher, dass Blog-Posts auf dem Gradienten lesbar sind */
 .blog-post-card {
     background-color: white;
     color: #333;
