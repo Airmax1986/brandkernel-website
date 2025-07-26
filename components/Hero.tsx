@@ -6,16 +6,19 @@ import GridContainer from "./GridContainer";
 
 export default function Hero() {
   return (
-    <div className="flex items-center justify-start min-h-screen text-white">
-      <GridContainer className="flex-col items-start text-left">
-        <div className="col-start-1 col-span-7 flex flex-col items-start">
+    // THE FIX: Der äußere Container zentriert den Inhalt horizontal und vertikal
+    <div className="flex items-center justify-center min-h-screen text-white">
+      <GridContainer>
+        {/* THE FIX: Der innere Container ist linksbündig (text-left) und nimmt
+            auf größeren Bildschirmen die mittleren 6 von 8 Spalten ein,
+            wodurch er zentriert erscheint. */}
+        <div className="col-span-full md:col-start-2 md:col-span-6 flex flex-col items-start text-left">
           <motion.div
-            className="max-w-5xl"
+            className="w-full" // Nimmt die volle Breite seines Containers ein
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* THE FIX: text-hero (2rem) und font-light angewendet */}
             <div className="text-hero font-light leading-snug">
               <h1>
                 Finally stand out – with positioning that feels like you.
