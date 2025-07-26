@@ -15,14 +15,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* THE FIX: Using 'text-hero' (3rem) and 'font-bold' */}
-            <h1 className="text-hero font-bold leading-tight">
-              Finally stand out – with positioning that feels like you.
-            </h1>
-            {/* THE FIX: Also using 'text-hero' (3rem) and 'font-bold' */}
-            <p className="text-hero font-bold max-w-4xl mt-6 leading-tight">
-              We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
-            </p>
+            {/* THE FIX: text-hero (2rem) und font-light angewendet */}
+            <div className="text-hero font-light leading-snug">
+              <h1>
+                Finally stand out – with positioning that feels like you.
+              </h1>
+              <p className="mt-6">
+                We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
