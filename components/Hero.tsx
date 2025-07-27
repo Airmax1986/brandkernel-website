@@ -17,10 +17,10 @@ export default function Hero() {
           >
             <div className="text-hero font-light leading-snug">
               <h1>
-                Finally stand out – with positioning that feels like you.
+                BrandKernel
               </h1>
               <p className="mt-6">
-                We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
+                Finally stand out – with positioning that feels like you.</br> We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
               </p>
             </div>
           </motion.div>
