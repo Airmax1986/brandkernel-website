@@ -1,21 +1,27 @@
-// app/layout.tsx
-// ... (imports)
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/Header";
 
-// ... (der Rest der Datei)
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
+// Diese Zeilen waren in der letzten Version fehlerhaft oder fehlten
+const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
+
+export const metadata: Metadata = {
+  title: "BrandKernel - Stand out with positioning that feels like you",
+  description: "We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        {/* WICHTIG: Die Startseite rendert ihren eigenen Footer.
-            Für alle anderen Seiten wird der Footer hier gerendert.
-            Wir müssen eine Logik hinzufügen, um das zu steuern.
-            ODER: Wir entfernen den Footer von hier und fügen ihn
-            auf jeder Seite manuell hinzu, wo er benötigt wird.
-            Letzteres ist sauberer. */}
         <main>{children}</main>
-        {/* Footer wird jetzt pro Seite hinzugefügt. */}
+        {/* Der Footer wird jetzt auf jeder Seite einzeln hinzugefügt, nicht mehr hier. */}
       </body>
     </html>
   );
