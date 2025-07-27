@@ -16,7 +16,7 @@ export default function Hero() {
           >
             <h1 className="text-8xl font-bold leading-none"></h1>
             <p className="text-5xl font-light mt-8 leading-tight">
-              We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
+              We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart.
             </p>
           </motion.div>
 
