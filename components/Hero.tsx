@@ -6,15 +6,12 @@ import GridContainer from "./GridContainer";
 
 export default function Hero() {
   return (
-    // THE FIX: Der äußere Container zentriert den Inhalt horizontal und vertikal
-    <div className="flex items-center justify-center min-h-screen text-white">
+    // THE FIX: Textfarbe von text-white auf text-black geändert
+    <div className="flex items-center justify-center min-h-screen text-black">
       <GridContainer>
-        {/* THE FIX: Der innere Container ist linksbündig (text-left) und nimmt
-            auf größeren Bildschirmen die mittleren 6 von 8 Spalten ein,
-            wodurch er zentriert erscheint. */}
         <div className="col-span-full md:col-start-2 md:col-span-6 flex flex-col items-start text-left">
           <motion.div
-            className="w-full" // Nimmt die volle Breite seines Containers ein
+            className="w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -35,7 +32,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-orange-500 p-2 rounded-md">
+            <div className="bg-orange-500 p-2 rounded-md text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

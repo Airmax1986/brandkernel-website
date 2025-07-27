@@ -4,18 +4,14 @@
 @tailwind utilities;
 
 body {
-  background-color: #96A0C8; /* Fallback-Farbe */
-  /* THE FIX: Engere Farbübergänge für einen kleineren, konzentrierteren Verlauf */
-  background-image: radial-gradient(
-    circle at 50% 50%,
-    #FD7C2D 0%,      /* Kern */
-    #FFDF95 15%,     /* Leuchten verblasst früher */
-    #96A0C8 45%      /* Übergang zu Blau ist viel früher abgeschlossen */
-  );
-  color: white;
+  /* THE FIX: Hintergrund auf #d2d2d2 gesetzt */
+  background-color: #d2d2d2;
+  
+  /* THE FIX: Standard-Textfarbe auf Schwarz für Lesbarkeit geändert */
+  color: #000000;
 }
 
-/* Stellt sicher, dass Blog-Posts auf dem Gradienten lesbar sind */
+/* Stellt sicher, dass Blog-Posts auf dem neuen Hintergrund gut aussehen */
 .blog-post-card {
     background-color: white;
     color: #333;
