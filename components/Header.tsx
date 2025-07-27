@@ -4,7 +4,8 @@ import GridContainer from "./GridContainer";
 export default function Header() {
   return (
     <header className="absolute top-0 left-0 right-0 z-20 py-4">
-      <GridContainer className="items-center text-white text-header font-bold">
+      {/* Die Klasse "text-white" wurde entfernt. Die Farbe wird jetzt von globals.css geerbt. */}
+      <GridContainer className="items-center text-header font-bold">
         <div className="col-span-2">
           <Link href="/">BrandKernel</Link>
         </div>

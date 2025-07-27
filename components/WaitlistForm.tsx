@@ -40,7 +40,8 @@ export default function WaitlistForm() {
     <div className="fixed bottom-0 left-0 right-0 w-full p-4 z-20">
       <GridContainer className="items-center">
         <div className="col-span-full flex justify-center items-center gap-x-4">
-          <span className="text-white font-semibold">Join our Waitlist</span>
+          {/* Die Klasse "text-white" wurde entfernt. Die Farbe wird jetzt von globals.css geerbt. */}
+          <span className="font-semibold">Join our Waitlist</span>
 
           {isSuccess ? (
             <div className="flex items-center justify-center text-center bg-green-500 text-white px-4 py-2 rounded-md shadow-lg h-[42px] w-[320px]">
@@ -53,7 +54,7 @@ export default function WaitlistForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@mail.com"
-                className="bg-white text-black text-base placeholder:text-black px-4 py-2 rounded-l-md focus:outline-none w-64 h-[42px]"
+                className="bg-white text-black text-base placeholder:text-black px-4 py-2 rounded-l-md focus-outline-none w-64 h-[42px]"
                 required
                 disabled={isLoading}
               />

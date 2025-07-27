@@ -5,7 +5,8 @@ import GridContainer from "./GridContainer";
 
 export default function Hero() {
   return (
-    <div className="flex items-center justify-center min-h-screen text-white">
+    // Die Klasse "text-white" wurde entfernt. Die Farbe wird jetzt von globals.css geerbt.
+    <div className="flex items-center justify-center min-h-screen">
       <GridContainer>
         <div className="col-span-full md:col-start-2 md:col-span-6 flex flex-col items-start text-left">
           <motion.div
@@ -35,7 +36,7 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
             </div>
-            <span>Start your brand discovery – receive your personal brand book after.</span>
+            <span>Start your brand discovery now – receive your personal brand book after.</span>
           </motion.div>
         </div>
       </GridContainer>
