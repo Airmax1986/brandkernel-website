@@ -5,10 +5,10 @@ import GridContainer from "./GridContainer";
 
 export default function Hero() {
   return (
-    // Die Klasse "text-white" wurde entfernt. Die Farbe wird jetzt von globals.css geerbt.
-    <div className="flex items-left justify-left min-h-screen">
+    // Die Klasse "py-32" wurde hinzugefügt, um den vertikalen Abstand zu erzeugen.
+    <div className="flex items-center justify-center min-h-screen text-white py-32">
       <GridContainer>
-        <div className="col-span-full md:col-start-1 md:col-span-6 flex flex-col items-start text-left">
+        <div className="col-span-full md:col-start-2 md:col-span-6 flex flex-col items-start text-left">
           <motion.div
             className="w-full"
             initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ export default function Hero() {
           >
             <div className="text-hero font-light leading-snug">
               <h1>
-                BrandKernel
+                
               </h1>
               <p className="mt-6">
                 Finally stand out – with positioning that feels like you. We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
