@@ -4,10 +4,10 @@
 @tailwind utilities;
 
 body {
-  /* Grundfarbe: Ein sehr helles, warmes Grau */
-  background-color: #f2f0f0;
+  /* THE FIX: Grundfarbe auf #d2d2d2 gesetzt, wie gewünscht */
+  background-color: #d2d2d2;
 
-  /* Der subtile, helle Verlauf */
+  /* Der subtile, helle Verlauf bleibt erhalten */
   background-image:
     radial-gradient(
       circle 500px at 80% 40%,
@@ -24,12 +24,12 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /* Standard-Textfarbe auf Weiß gesetzt, wie gewünscht */
+  /* Die Textfarbe bleibt weiß, wie gewünscht */
   color: #ffffff;
 }
 
 /* Stellt sicher, dass Blog-Posts auf dem neuen Hintergrund gut aussehen */
 .blog-post-card {
     background-color: white;
-    color: #333; /* Dunkler Text für die Karten, um lesbar zu bleiben */
+    color: #333;
 }
