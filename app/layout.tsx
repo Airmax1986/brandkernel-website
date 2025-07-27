@@ -1,10 +1,9 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer"; // Den neuen Footer importieren
 
-// THE FIX: Loading all required font weights (light, medium, bold)
 const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
 export const metadata: Metadata = {
@@ -22,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <main>{children}</main>
+        <Footer /> {/* Das WaitlistForm durch den neuen Footer ersetzen */}
       </body>
     </html>
   );
