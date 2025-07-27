@@ -35,7 +35,7 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
             </div>
-            <span>Start your brand discovery now – receive your personal brand book after.</span>
+            <span>Start your brand discovery – receive your personal brand book after.</span>
           </motion.div>
         </div>
       </GridContainer>

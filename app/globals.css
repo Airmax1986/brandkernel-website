@@ -4,14 +4,10 @@
 @tailwind utilities;
 
 body {
-  /* THE FIX: Grundfarbe auf #d2d2d2 gesetzt, wie gewünscht */
   background-color: #ccc;
-
-  /* Die Textfarbe bleibt weiß, wie gewünscht */
   color: #000;
 }
 
-/* Stellt sicher, dass Blog-Posts auf dem neuen Hintergrund gut aussehen */
 .blog-post-card {
     background-color: white;
     color: #ccc;
