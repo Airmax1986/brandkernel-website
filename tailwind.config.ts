@@ -16,7 +16,7 @@ const config: Config = {
       },
       fontSize: {
         'header': '1rem',
-        'hero': '2rem',
+        'hero': '3rem',
       },
     },
   },
