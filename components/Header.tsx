@@ -22,7 +22,7 @@ export default function Header() {
             <Link href="/about" className="hover:text-gray-600 transition-colors">About</Link>
             <Link href="/blog" className="hover:text-gray-600 transition-colors">Blog</Link>
           </div>
-          <Link href="/waitlist" className="hover:text-gray-600 transition-colors">
+          <Link href="#waitlist" className="hover:text-gray-600 transition-colors">
             Join Waitlist
           </Link>
         </div>

@@ -6,9 +6,9 @@ import GridContainer from "./GridContainer";
 export default function Hero() {
   return (
     // Die Klasse "text-white" wurde entfernt. Die Farbe wird jetzt von globals.css geerbt.
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-left justify-left min-h-screen">
       <GridContainer>
-        <div className="col-span-full md:col-start-2 md:col-span-6 flex flex-col items-start text-left">
+        <div className="col-span-full md:col-start-1 md:col-span-6 flex flex-col items-start text-left">
           <motion.div
             className="w-full"
             initial={{ opacity: 0, y: 20 }}
