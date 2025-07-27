@@ -14,7 +14,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-8xl font-bold leading-none">Brand Kernel</h1>
+            <h1 className="text-8xl font-bold leading-none"></h1>
             <p className="text-5xl font-light mt-8 leading-tight">
               We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
             </p>

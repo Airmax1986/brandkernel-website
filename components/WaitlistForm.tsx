@@ -1,9 +1,11 @@
+// components/WaitlistForm.tsx
 "use client";
-
 import { useState } from "react";
-import GridContainer from "./GridContainer";
+// GridContainer wird hier nicht mehr benötigt
+// ... (useState und handleSubmit bleiben gleich)
 
-export default function WaitlistForm() {
+export default function WaitlistForm({ isHidden }: { isHidden: boolean }) {
+  // ... (useState und handleSubmit Logik hier einfügen)
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -13,16 +15,13 @@ export default function WaitlistForm() {
     e.preventDefault();
     setIsLoading(true);
     setMessage("");
-
     try {
       const res = await fetch("/api/join-waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         setIsSuccess(true);
         setMessage(data.message || "Success!");
@@ -37,13 +36,12 @@ export default function WaitlistForm() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 w-full p-4 z-20">
-      <GridContainer className="items-center">
-        <div className="col-span-full flex justify-center items-center gap-x-4">
-          {/* Die Klasse "text-white" wurde entfernt. Die Farbe wird jetzt von globals.css geerbt. */}
-          <span className="font-semibold">Join our Waitlist</span>
-
-          {isSuccess ? (
+    // Wir fügen eine CSS-Klasse hinzu, um die Leiste basierend auf 'isHidden' auszublenden
+    <div className={`fixed bottom-0 left-0 right-0 w-full p-4 z-20 transition-opacity duration-300 ${isHidden ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      <div className="container mx-auto flex justify-center items-center gap-x-4">
+        <span className="font-semibold">Join our Waitlist</span>
+        {/* Der Rest des Formulars bleibt gleich */}
+        {isSuccess ? (
             <div className="flex items-center justify-center text-center bg-green-500 text-white px-4 py-2 rounded-md shadow-lg h-[42px] w-[320px]">
               <span>{message}</span>
             </div>
@@ -69,13 +67,10 @@ export default function WaitlistForm() {
               </button>
             </form>
           )}
-
-          <span className="text-orange-400">247 people already joined</span>
-        </div>
-      </GridContainer>
-
+        <span className="text-orange-400">247 people already joined</span>
+      </div>
       {!isSuccess && message && (
-        <p className="text-center mt-2 text-sm text-red-500 font-semibold">{message}</p>
+        <p className="text-center mt-2 text-sm text-red-400 font-semibold">{message}</p>
       )}
     </div>
   );

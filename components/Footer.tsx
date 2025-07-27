@@ -1,18 +1,21 @@
-import Link from "next/link";
+// components/Footer.tsx
+"use client";
+import { useRef } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import WaitlistForm from "./WaitlistForm";
+import SiteFooter from "./SiteFooter";
 
 export default function Footer() {
+  const footerRef = useRef<HTMLElement>(null);
+  const isFooterVisible = useIntersectionObserver(footerRef, {
+    rootMargin: "0px",
+    threshold: 0.1, // Wird true, wenn 10% des Footers sichtbar sind
+  });
+
   return (
-    <footer className="relative">
-      <WaitlistForm />
-      <div className="absolute bottom-2 left-0 right-0 text-center text-xs">
-        <div className="inline-flex gap-x-4">
-          <Link href="/imprint" className="hover:underline">Imprint</Link>
-          <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
-          <Link href="/contact" className="hover:underline">Contact</Link>
-          <span>© {new Date().getFullYear()} BrandKernel</span>
-        </div>
-      </div>
-    </footer>
+    <>
+      <WaitlistForm isHidden={isFooterVisible} />
+      <SiteFooter ref={footerRef} />
+    </>
   );
 }

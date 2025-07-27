@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import FullscreenSection from "@/components/FullscreenSection";
+import Footer from "@/components/Footer";
 
 const sections = [
   { id: "manifest", title: "Manifest" },
@@ -20,6 +21,7 @@ export default function Home() {
           title={section.title}
         />
       ))}
+      <Footer />
     </div>
   );
 }

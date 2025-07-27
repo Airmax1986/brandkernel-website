@@ -1,27 +1,21 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer"; // Den neuen Footer importieren
+// app/layout.tsx
+// ... (imports)
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
-
-export const metadata: Metadata = {
-  title: "BrandKernel - Stand out with positioning that feels like you",
-  description: "We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+// ... (der Rest der Datei)
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Header />
+        {/* WICHTIG: Die Startseite rendert ihren eigenen Footer.
+            Für alle anderen Seiten wird der Footer hier gerendert.
+            Wir müssen eine Logik hinzufügen, um das zu steuern.
+            ODER: Wir entfernen den Footer von hier und fügen ihn
+            auf jeder Seite manuell hinzu, wo er benötigt wird.
+            Letzteres ist sauberer. */}
         <main>{children}</main>
-        <Footer /> {/* Das WaitlistForm durch den neuen Footer ersetzen */}
+        {/* Footer wird jetzt pro Seite hinzugefügt. */}
       </body>
     </html>
   );
