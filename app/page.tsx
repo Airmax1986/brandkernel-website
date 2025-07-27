@@ -18,8 +18,6 @@ export default function Home() {
           key={section.id}
           id={section.id}
           title={section.title}
-          // Sie können hier später die Farben für jede Sektion anpassen, z.B.
-          // bgColor={section.id === 'pricing' ? 'bg-gray-100' : 'bg-white'}
         />
       ))}
     </div>
