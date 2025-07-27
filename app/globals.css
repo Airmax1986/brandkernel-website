@@ -4,15 +4,32 @@
 @tailwind utilities;
 
 body {
-  /* THE FIX: Hintergrund auf #d2d2d2 gesetzt */
-  background-color: #d2d2d2;
-  
-  /* THE FIX: Standard-Textfarbe auf Schwarz für Lesbarkeit geändert */
-  color: #000000;
+  /* Grundfarbe: Ein sehr helles, warmes Grau */
+  background-color: #f2f0f0;
+
+  /* Der subtile, helle Verlauf */
+  background-image:
+    radial-gradient(
+      circle 500px at 80% 40%,
+      #fffbe0,
+      transparent 80%
+    ),
+    radial-gradient(
+      circle 700px at 25% 60%,
+      #ffe8e5,
+      transparent 70%
+    );
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* Standard-Textfarbe auf Weiß gesetzt, wie gewünscht */
+  color: #ffffff;
 }
 
 /* Stellt sicher, dass Blog-Posts auf dem neuen Hintergrund gut aussehen */
 .blog-post-card {
     background-color: white;
-    color: #333;
+    color: #333; /* Dunkler Text für die Karten, um lesbar zu bleiben */
 }

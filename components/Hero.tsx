@@ -1,4 +1,3 @@
-// components/Hero.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -6,8 +5,7 @@ import GridContainer from "./GridContainer";
 
 export default function Hero() {
   return (
-    // THE FIX: Textfarbe von text-white auf text-black geändert
-    <div className="flex items-center justify-center min-h-screen text-black">
+    <div className="flex items-center justify-center min-h-screen text-white">
       <GridContainer>
         <div className="col-span-full md:col-start-2 md:col-span-6 flex flex-col items-start text-left">
           <motion.div
