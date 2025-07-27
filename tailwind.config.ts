@@ -1,4 +1,3 @@
-// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -10,13 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        // THE FIX: Margin exakt auf 1rem gesetzt
         'page-margin': '1rem',
         'page-gutter': '1.5rem',
       },
       fontSize: {
         'header': '1rem',
-        'hero': '4rem',
+        'hero': '2rem',
+      },
+      colors: {
+        // Die neue, leuchtende blaue Farbe
+        'brand-blue': '#4A4AFF',
       },
     },
   },

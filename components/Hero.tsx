@@ -5,7 +5,7 @@ import GridContainer from "./GridContainer";
 
 export default function Hero() {
   return (
-    <div className="flex items-center justify-center min-h-screen text-white py-32">
+    <section className="flex flex-col justify-center min-h-screen py-32">
       <GridContainer>
         <div className="col-span-full flex flex-col items-start text-left">
           <motion.div
@@ -14,32 +14,27 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-hero font-light leading-snug">
-              <h1>
-                Brand Kernel
-              </h1>
-              <p className="mt-6">
-                We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
-              </p>
-            </div>
+            <h1 className="text-8xl font-bold leading-none">Brand Kernel</h1>
+            <p className="text-5xl font-light mt-8 leading-tight">
+              We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart. Read more
+            </p>
           </motion.div>
 
           <motion.div
-            className="mt-10 flex items-center space-x-3 text-lg"
+            className="mt-12 flex items-center space-x-3 text-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="bg-orange-500 p-2 rounded-md text-white">
-              {/* Diese SVG-Zeile wurde von den doppelten Attributen bereinigt */}
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
             </div>
             <span>Start your brand discovery now – receive your personal brand book after.</span>
           </motion.div>
         </div>
       </GridContainer>
-    </div>
+    </section>
   );
 }
