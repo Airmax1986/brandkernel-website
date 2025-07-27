@@ -1,6 +1,3 @@
-// components/WaitlistForm.tsx
-"use client";
-
 import { useState } from "react";
 import GridContainer from "./GridContainer";
 
@@ -10,13 +7,37 @@ export default function WaitlistForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // ... (Die handleSubmit-Funktion bleibt unverändert)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setMessage("");
+
+    try {
+      const res = await fetch("/api/join-waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setIsSuccess(true);
+        setMessage(data.message || "Success!");
+      } else {
+        setMessage(data.error || "An error occurred.");
+      }
+    } catch (error) {
+      setMessage("Failed to connect to the server.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 w-full p-4 z-20">
       <GridContainer className="items-center">
         <div className="col-span-full flex justify-center items-center gap-x-4">
-          {/* THE FIX: Textfarbe auf text-black geändert */}
           <span className="text-black font-semibold">Join our Waitlist</span>
 
           {isSuccess ? (
