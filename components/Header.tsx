@@ -14,17 +14,18 @@ export default function Header() {
 
         {/* Center: Main Navigation */}
         <nav className="hidden md:flex col-span-4 items-center justify-center">
-          <Link href="/#features" className="hover:text-gray-600 transition-colors">How it works, Features, Pricing, Manifest</Link>
+          <Link href="/#howitworks" className="hover:text-gray-600 transition-colors">Approach,</Link>
+          <Link href="/#howitworks" className="hover:text-gray-600 transition-colors">How it works,</Link>
+          <Link href="/#howitworks" className="hover:text-gray-600 transition-colors">Features,</Link>
+          <Link href="/#howitworks" className="hover:text-gray-600 transition-colors">Pricing</Link>
         </nav>
 
         {/* Right: Secondary Nav & CTA */}
         <div className="hidden md:flex col-span-2 items-center justify-end space-x-8">
           <div className="flex items-center space-x-4">
-            <Link href="/about" className="hover:text-gray-600 transition-colors">About</Link>
-            <Link href="/blog" className="hover:text-gray-600 transition-colors">Blog</Link>
-          </div>
-          <Link href="/waitlist" className="hover:text-gray-600 transition-colors">
-            Join Waitlist
+            <Link href="/about" className="hover:text-gray-600 transition-colors">About,</Link>
+            <Link href="/blog" className="hover:text-gray-600 transition-colors">Blog,</Link>
+          <Link href="/waitlist" className="hover:text-gray-600 transition-colors">Join Waitlist</Link>
           </Link>
         </div>
       </GridContainer>
