@@ -4,11 +4,11 @@
 @tailwind utilities;
 
 body {
-  background-color: #4860FF;
-  color: #fff;
+  background-color: #FFF;
+  color: #000;
 }
 
 .blog-post-card {
-    background-color: #4860FF;
-    color: #fff;
+    background-color: #FFF;
+    color: #000;
 }
