@@ -19,7 +19,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-7xl font-bold leading-tight">
+            <h1 className="text-9xl font-regular leading-tight">
               The Conversation That Changes Everything.
             </h1>
             <p className="text-3xl font-light mt-8 max-w-6xl">
@@ -35,9 +35,9 @@ export default function Hero() {
           >
             <p className="text-center text-xl mb-4">Choose your path</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <CtaButton href="/creators">I'm a Creator</CtaButton>
-              <CtaButton href="/consultants">I'm a Freelancer/Consultant</CtaButton>
-              <CtaButton href="/founders">I'm a Founder</CtaButton>
+              <CtaButton href="/creators">Creator</CtaButton>
+              <CtaButton href="/consultants">Freelancer</CtaButton>
+              <CtaButton href="/founders">Founder</CtaButton>
             </div>
           </motion.div>
         </div>
