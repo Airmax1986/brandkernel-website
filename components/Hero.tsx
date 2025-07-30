@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import GridContainer from "./GridContainer";
-import PathButton from "./PathButton";
+import CtaButton from "./CtaButton"; // Importiert jetzt den CtaButton
 
 export default function Hero() {
   return (
@@ -28,15 +28,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-xl mb-6">Every day, another thousand businesses launch. Another million posts published. Another wave of AI-generated sameness floods the market.</p>
-            <p className="text-xl font-medium">The few who break through? They start with clarity about who they are and why they matter.</p>
-            <div className="mt-12">
-              <p className="text-center text-xl mb-4">Choose your path</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <PathButton href="/#creators">I'm a Creator</PathButton>
-                <PathButton href="/#consultants">I'm a Freelancer/Consultant</PathButton>
-                <PathButton href="/#founders">I'm a Founder</PathButton>
-              </div>
+            <p className="text-center text-xl mb-4">Choose your path</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {/* PathButton wurde durch CtaButton ersetzt */}
+              <CtaButton href="/creators">I'm a Creator</CtaButton>
+              <CtaButton href="/consultants">I'm a Freelancer/Consultant</CtaButton>
+              <CtaButton href="/founders">I'm a Founder</CtaButton>
             </div>
           </motion.div>
         </div>
