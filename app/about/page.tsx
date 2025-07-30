@@ -5,7 +5,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white text-brand-blue py-32">
       <div className="max-w-3xl mx-auto px-4 text-left space-y-8 prose prose-2xl">
         <h1>The Story Behind BrandKernel</h1>
-        <p>I'm Max. After 20 years as a designer and brand consultant, I kept seeing the same tragedy:</p>
+        <p>I'm Max. After 20 years as brand consultant (M.A. Visual Communication), I kept seeing the same tragedy:</p>
         <p className="font-bold">Brilliant professionals—creators, consultants, founders—losing the attention war. Not because they lacked talent. Not because they lacked effort. But because they lacked strategic clarity about who they are and why they matter.</p>
         
         <div>
