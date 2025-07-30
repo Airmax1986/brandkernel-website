@@ -9,11 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        'page-margin': '1rem',
+        // Der Seitenrand wird exakt auf 1.5rem gesetzt
+        'page-margin': '1.5rem',
         'page-gutter': '1.5rem',
       },
       fontSize: {
-        'header': '1.2rem',
+        'header': '1rem',
         'hero': '2rem',
       },
       colors: {

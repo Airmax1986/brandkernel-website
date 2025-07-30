@@ -1,4 +1,3 @@
-// components/GridContainer.tsx
 import React from 'react';
 
 export default function GridContainer({ children, className }: { children: React.ReactNode; className?: string }) {
