@@ -14,10 +14,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-7xl font-bold leading-tight">
+            <h1 className="text-8xl font-regular leading-tight">
               The Conversation That Changes Everything.
             </h1>
-            <p className="text-3xl font-light mt-8 max-w-6xl">
+            <p className="text-3xl font-regular mt-8 max-w-6xl">
               While millions fight for attention with generic AI content, the winners go deeper. BrandKernel guides you through the strategic dialogue that uncovers your authentic positioning—the foundation successful creators, consultants, and founders build empires on.
             </p>
           </motion.div>
@@ -30,10 +30,9 @@ export default function Hero() {
           >
             <p className="text-center text-xl mb-4">Choose your path</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {/* PathButton wurde durch CtaButton ersetzt */}
-              <CtaButton href="/creators">I'm a Creator</CtaButton>
-              <CtaButton href="/consultants">I'm a Freelancer/Consultant</CtaButton>
-              <CtaButton href="/founders">I'm a Founder</CtaButton>
+              <CtaButton href="/creators">Creator</CtaButton>
+              <CtaButton href="/consultants">Freelancer</CtaButton>
+              <CtaButton href="/founders">Founder</CtaButton>
             </div>
           </motion.div>
         </div>
