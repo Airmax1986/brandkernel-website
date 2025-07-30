@@ -13,11 +13,10 @@ const config: Config = {
         'page-gutter': '1.5rem',
       },
       fontSize: {
-        'header': '1rem',
+        'header': '1.2rem',
         'hero': '2rem',
       },
       colors: {
-        // Die neue, leuchtende blaue Farbe
         'brand-blue': '#4A4AFF',
       },
     },
