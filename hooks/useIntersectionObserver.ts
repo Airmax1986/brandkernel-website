@@ -1,3 +1,4 @@
+// hooks/useIntersectionObserver.ts
 "use client";
 import { useState, useEffect, RefObject } from 'react';
 

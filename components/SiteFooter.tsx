@@ -3,7 +3,6 @@ import Link from "next/link";
 import GridContainer from "./GridContainer";
 import React from "react";
 
-// Wir verwenden React.forwardRef, um die 'ref' von außen durchzureichen
 const SiteFooter = React.forwardRef<HTMLElement>((props, ref) => {
   return (
     <footer ref={ref} className="bg-white text-brand-blue py-8">

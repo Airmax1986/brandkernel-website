@@ -1,8 +1,7 @@
+// components/WaitlistForm.tsx
 "use client";
-
 import { useState } from "react";
 
-// Die Funktionssignatur wurde korrigiert, um die 'isHidden'-Prop zu akzeptieren.
 export default function WaitlistForm({ isHidden }: { isHidden: boolean }) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -13,16 +12,13 @@ export default function WaitlistForm({ isHidden }: { isHidden: boolean }) {
     e.preventDefault();
     setIsLoading(true);
     setMessage("");
-
     try {
       const res = await fetch("/api/join-waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         setIsSuccess(true);
         setMessage(data.message || "Success!");
@@ -37,7 +33,6 @@ export default function WaitlistForm({ isHidden }: { isHidden: boolean }) {
   };
 
   return (
-    // Die Logik hier verwendet 'isHidden', um die Sichtbarkeit zu steuern.
     <div className={`fixed bottom-12 sm:bottom-4 left-0 right-0 w-full p-4 z-20 transition-opacity duration-300 ${isHidden ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       <div className="container mx-auto flex justify-center items-center gap-x-4">
         <span className="font-semibold">Join our Waitlist</span>

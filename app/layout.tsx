@@ -1,16 +1,13 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import WaitlistForm from "@/components/WaitlistForm";
-import SiteFooter from "@/components/SiteFooter";
+import FooterController from "@/components/FooterController";
 
 const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
-export const metadata: Metadata = {
-  title: "BrandKernel - Stand out with positioning that feels like you",
-  description: "We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant.",
-};
+export const metadata = { /* ... */ };
 
 export default function RootLayout({
   children,
@@ -19,11 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="relative">
+      <body className={inter.className}>
         <Header />
         <main>{children}</main>
-        <SiteFooter />
-        <WaitlistForm />
+        <FooterController />
       </body>
     </html>
   );
