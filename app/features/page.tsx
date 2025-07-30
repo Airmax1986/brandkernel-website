@@ -1,4 +1,4 @@
-/Users/maximilian/Documents/GitHub/brandkernel-website/app/features/page.tsximport CtaButton from "@/components/CtaButton";
+import CtaButton from "@/components/CtaButton";
 
 export default function FeaturesPage() {
   return (
