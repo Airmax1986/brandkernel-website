@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -7,7 +6,10 @@ import FooterController from "@/components/FooterController";
 
 const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
-export const metadata = { /* ... */ };
+export const metadata: Metadata = {
+  title: "BrandKernel - Stand out with positioning that feels like you",
+  description: "We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant.",
+};
 
 export default function RootLayout({
   children,

@@ -1,4 +1,3 @@
-// components/FooterController.tsx
 "use client";
 import { useRef } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
