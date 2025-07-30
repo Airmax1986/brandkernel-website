@@ -1,3 +1,5 @@
+import CtaButton from "@/components/CtaButton";
+
 export default function ManifestPage() {
   return (
     <div className="min-h-screen bg-white text-brand-blue py-32">
