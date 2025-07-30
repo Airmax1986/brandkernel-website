@@ -36,7 +36,7 @@ export default function Hero() {
             <p className="text-center text-xl mb-4">Choose your path</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <CtaButton href="/creators">Creator</CtaButton>
-              <CtaButton href="/consultants">Freelancer</CtaButton>
+              <CtaButton href="/freelancers">Freelancer</CtaButton>
               <CtaButton href="/founders">Founder</CtaButton>
             </div>
           </motion.div>
