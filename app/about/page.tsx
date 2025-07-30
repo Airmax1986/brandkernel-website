@@ -30,7 +30,6 @@ export default function AboutPage() {
         <p>Ready to have the conversation that changes everything?</p>
         <div className="text-center mt-12">
           <CtaButton href="/waitlist">Join the Waitlist</CtaButton>
-           <p>Let's connect on <a href="https://www.linkedin.com/in/maximilian-appelt/">LinkedIn</a>
         </div>
       </div>
     </div>
