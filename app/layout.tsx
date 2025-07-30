@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import WaitlistForm from "@/components/WaitlistForm";
+import SiteFooter from "@/components/SiteFooter";
 
-// Diese Zeilen waren in der letzten Version fehlerhaft oder fehlten
 const inter = Inter({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
 export const metadata: Metadata = {
@@ -18,10 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="relative">
         <Header />
         <main>{children}</main>
-        {/* Der Footer wird jetzt auf jeder Seite einzeln hinzugefügt, nicht mehr hier. */}
+        <SiteFooter />
+        <WaitlistForm />
       </body>
     </html>
   );

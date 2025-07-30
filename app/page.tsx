@@ -1,37 +1,68 @@
 import Hero from "@/components/Hero";
 import FullscreenSection from "@/components/FullscreenSection";
+import SecondaryButton from "@/components/SecondaryButton";
 
 export default function Home() {
   return (
     <div>
       <Hero />
 
-      <FullscreenSection id="universal-problem" title="The Attention Economy's Dirty Secret">
-        <p className="mb-8">You're competing with everyone, everywhere, all at once.</p>
-        <ul className="list-disc list-inside space-y-4 text-left mb-12">
-          <li>Creators battle for views in an ocean of content</li>
-          <li>Freelancers race to the bottom on price</li>
-          <li>Founders launch into the void of 1,000 daily startups</li>
-        </ul>
-        <p className="font-bold">The Real Problem: You're trying to win with tactics when you need strategy. You're using templates when you need truth. You're copying others when you need to be irreplaceably you.</p>
+      {/* Manifest Section */}
+      <FullscreenSection id="manifest" title="The BrandKernel Manifesto">
+        <p className="font-bold text-3xl">We believe the future belongs to the strategically clear.</p>
+        <p className="mt-8">
+          In an economy where attention is currency and authenticity is scarce, only those who know exactly who they are will thrive. We reject the template trap and the surface-level solutions that make everyone sound the same.
+        </p>
+        <SecondaryButton href="/manifest" className="mt-12">
+          Read the Full Manifesto →
+        </SecondaryButton>
       </FullscreenSection>
 
-      <FullscreenSection id="solution-preview" title="Your Brand Kernel: The Strategic Core That Changes Everything">
-        <div className="text-left space-y-8">
-          <div>
-            <h3 className="text-3xl font-bold">What It Is:</h3>
-            <p>Through guided AI dialogue, we help you uncover the authentic positioning that no algorithm can copy and no competitor can steal. Your values, vision, and voice—crystallized into strategic clarity.</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold">How It Works:</h3>
-            <p>Our AI Brand Consultant asks the questions that matter. The uncomfortable ones. The revealing ones. The ones that lead to "holy shit, that's exactly who I am" moments.</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold">The Result:</h3>
-            <p>A strategic foundation that makes every decision clear. Every message authentic. Every action aligned.</p>
-          </div>
-        </div>
+      {/* Approach Section */}
+      <FullscreenSection id="approach" title="Our Approach: Dialogue, Not Forms">
+        <p className="font-bold text-3xl">Traditional branding gives you worksheets. We give you a conversation.</p>
+        <p className="mt-8">
+          Most platforms hand you templates and wish you luck. We've built something different: an AI Brand Consultant trained on decades of strategic wisdom, designed to guide you through the deep work most avoid.
+        </p>
+        <SecondaryButton href="/approach" className="mt-12">
+          Explore Our Approach →
+        </SecondaryButton>
       </FullscreenSection>
+
+      {/* How It Works Section */}
+      <FullscreenSection id="how-it-works" title="How BrandKernel Works">
+        <p className="font-bold text-3xl">Four Levels. One Transformation.</p>
+        <p className="mt-8">
+          From Foundation Discovery to Strategic Positioning, our guided dialogue takes you from confusion to absolute clarity about who you are and where you win.
+        </p>
+        <SecondaryButton href="/how-it-works" className="mt-12">
+          See the Four Levels →
+        </SecondaryButton>
+      </FullscreenSection>
+
+      {/* Features Section */}
+      <FullscreenSection id="features" title="Features That Go Deep">
+        <p className="font-bold text-3xl">BrandKernel isn't another survey tool. It's your strategic thinking partner.</p>
+        <p className="mt-8">
+          From our Adaptive Dialogue System to the living Brand Kernel Book, every feature is designed to help you discover and activate your authentic brand advantage.
+        </p>
+        <SecondaryButton href="/features" className="mt-12">
+          Discover All Features →
+        </SecondaryButton>
+      </FullscreenSection>
+
+      {/* Pricing Section */}
+      <FullscreenSection id="pricing" title="Simple Pricing. Profound Results.">
+        <p className="text-5xl font-bold my-4">€297 (Early Access via Waitlist)</p>
+        <p className="font-bold">One investment. Lifetime clarity.</p>
+        <p className="mt-8">
+          Stop competing on tactics. Start winning with strategy. Your Brand Kernel is forever.
+        </p>
+        <SecondaryButton href="/pricing" className="mt-12">
+          View Pricing Details →
+        </SecondaryButton>
+      </FullscreenSection>
+
     </div>
   );
 }
