@@ -14,7 +14,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-8xl font-regular leading-tight">
+            <h1 className="text-9xl font-regular leading-tight">
               The Conversation That Changes Everything.
             </h1>
             <p className="text-3xl font-regular mt-8 max-w-6xl">
