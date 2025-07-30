@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-export default function WaitlistForm() {
+// Die Funktionssignatur wurde korrigiert, um die 'isHidden'-Prop zu akzeptieren.
+export default function WaitlistForm({ isHidden }: { isHidden: boolean }) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +37,8 @@ export default function WaitlistForm() {
   };
 
   return (
-    <div className="fixed bottom-12 sm:bottom-4 left-0 right-0 w-full p-4 z-20">
+    // Die Logik hier verwendet 'isHidden', um die Sichtbarkeit zu steuern.
+    <div className={`fixed bottom-12 sm:bottom-4 left-0 right-0 w-full p-4 z-20 transition-opacity duration-300 ${isHidden ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       <div className="container mx-auto flex justify-center items-center gap-x-4">
         <span className="font-semibold">Join our Waitlist</span>
         {isSuccess ? (
@@ -50,7 +52,7 @@ export default function WaitlistForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@mail.com"
-              className="bg-white text-black text-base placeholder:text-black px-4 py-2 rounded-l-md focus:outline-none w-64 h-[42px]"
+              className="bg-white text-black text-base placeholder:text-black px-4 py-2 rounded-l-md focus-outline-none w-64 h-[42px]"
               required
               disabled={isLoading}
             />
