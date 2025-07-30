@@ -1,7 +1,7 @@
 "use client";
-
 import { motion } from "framer-motion";
 import GridContainer from "./GridContainer";
+import PathButton from "./PathButton";
 
 export default function Hero() {
   return (
@@ -14,24 +14,30 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-8xl font-bold leading-none"></h1>
-            <p className="text-5xl font-light mt-8 leading-tight">
-              We guide you through a deep, personal brand discovery, powered by an empathetic AI brand consultant. Together, we’ll uncover the core of your personality and what truly sets you apart.
+            <h1 className="text-7xl font-bold leading-tight">
+              The Conversation That Changes Everything.
+            </h1>
+            <p className="text-3xl font-light mt-8 max-w-6xl">
+              While millions fight for attention with generic AI content, the winners go deeper. BrandKernel guides you through the strategic dialogue that uncovers your authentic positioning—the foundation successful creators, consultants, and founders build empires on.
             </p>
           </motion.div>
 
           <motion.div
-            className="mt-12 flex items-center space-x-3 text-lg"
+            className="w-full mt-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-orange-500 p-2 rounded-md text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+            <p className="text-xl mb-6">Every day, another thousand businesses launch. Another million posts published. Another wave of AI-generated sameness floods the market.</p>
+            <p className="text-xl font-medium">The few who break through? They start with clarity about who they are and why they matter.</p>
+            <div className="mt-12">
+              <p className="text-center text-xl mb-4">Choose your path</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <PathButton href="/#creators">I'm a Creator</PathButton>
+                <PathButton href="/#consultants">I'm a Freelancer/Consultant</PathButton>
+                <PathButton href="/#founders">I'm a Founder</PathButton>
+              </div>
             </div>
-            <span>Start your brand discovery now – receive your personal brand book after.</span>
           </motion.div>
         </div>
       </GridContainer>

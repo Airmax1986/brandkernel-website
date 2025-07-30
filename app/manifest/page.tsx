@@ -1,21 +1,17 @@
 export default function ManifestPage() {
   return (
-    <div className="min-h-screen pt-48">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold">Manifest</h1>
-<h2>What We Believe</h2>
-<p className="mt-4 text-xl max-w-2xl mx-auto">Depth Over Surface
-Your brand kernel isn't a logo. It isn't a color palette. It isn't what you say about yourself.
-Your brand kernel is the truth about who you are, what you stand for, and the change you create in the world.</p>
-<p className="mt-4 text-xl max-w-2xl mx-auto">Discovery Over Construction
-The best brands aren't built. They're uncovered. They already exist in the intersection of your values, your expertise, and your vision. Our job is to help you find them.</p>
-<p className="mt-4 text-xl max-w-2xl mx-auto">Dialogue Over Diagnostics
-Real clarity doesn't come from filling out forms. It comes from being asked the right questions by someone who knows how to listen. Even if that someone is an AI.</p>
-<p className="mt-4 text-xl max-w-2xl mx-auto">Access Over Exclusivity
-Strategic depth shouldn't cost €20k. Every freelancer competing on price has a premium brand waiting to be discovered. We're here to democratize that discovery.
-Your authentic identity is your competitive advantage.
-We help you translate it into strategy.
-        </p>
+    <div className="min-h-screen bg-white text-brand-blue py-32">
+      <div className="max-w-3xl mx-auto px-4 text-left space-y-8 prose prose-2xl">
+        <h1>The BrandKernel Manifesto</h1>
+        <p className="font-bold text-3xl">We believe the future belongs to the strategically clear.</p>
+        <p>In an economy where attention is currency and authenticity is scarce, only those who know exactly who they are will thrive.</p>
+        <p>We reject the template trap. The copy-paste culture. The surface-level solutions that make everyone sound like everyone else.</p>
+        <p>We reject the feature race. More tools won't save you. Better tactics won't differentiate you. Another AI assistant won't make you memorable.</p>
+        <p>We believe in the deep work. The strategic conversations that reveal who you really are. The uncomfortable questions that unlock breakthrough positioning. The clarity that comes from going beyond the surface.</p>
+        <p>We believe every professional—creator, consultant, or founder—has a unique strategic position waiting to be uncovered. Not invented. Not fabricated. Discovered.</p>
+        <p>We believe this discovery shouldn't cost $20,000 or take six months. Strategic clarity should be accessible to everyone willing to do the work.</p>
+        <p>This is why BrandKernel exists. To democratize the strategic conversation that changes everything.</p>
+        <p className="font-bold text-3xl">Your competition is using templates. You're finding your truth.</p>
       </div>
     </div>
   );
