@@ -2,17 +2,23 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    // Die äußere <header>-Box: Immer 100% breit, KEIN seitlicher Rand (px).
-    <header className="absolute top-0 left-0 right-0 z-20 py-4 w-full">
-      
-      {/* Die innere <div>-Box: Hat die Maximalbreite, die Zentrierung UND den Seitenrand. */}
-      <div className="w-full max-w-[1920px] mx-auto px-page-margin grid grid-cols-8 gap-x-page-gutter items-center text-header font-bold">
+    // Der äußere <header> erstreckt sich über die volle Breite
+    <header className="absolute top-0 left-0 right-0 z-20 w-full">
+      {/* 
+        Dieser innere Container ist der Flex-Container.
+        - max-w-[1920px] & mx-auto: Zentriert auf >1920px Bildschirmen.
+        - px-page-margin: Wendet den 1.5rem Rand an.
+        - flex & justify-between: Schiebt die äußeren Elemente an den Rand.
+      */}
+      <div className="flex items-center justify-between w-full max-w-[1920px] mx-auto px-page-margin py-4 text-header font-bold">
         
-        <div className="col-span-2">
+        {/* Gruppe 1: Logo (wird ganz nach links geschoben) */}
+        <div>
           <Link href="/">BrandKernel</Link>
         </div>
 
-        <nav className="hidden md:flex col-span-4 items-center justify-center space-x-6">
+        {/* Gruppe 2: Zentrale Navigation */}
+        <nav className="hidden md:flex items-center space-x-6">
           <Link href="/manifest" className="hover:text-gray-300 transition-colors">Manifest</Link>
           <Link href="/approach" className="hover:text-gray-300 transition-colors">Approach</Link>
           <Link href="/how-it-works" className="hover:text-gray-300 transition-colors">How it works</Link>
@@ -20,7 +26,8 @@ export default function Header() {
           <Link href="/pricing" className="hover:text-gray-300 transition-colors">Pricing</Link>
         </nav>
 
-        <div className="hidden md:flex col-span-2 items-center justify-end space-x-8">
+        {/* Gruppe 3: Rechte Navigation (wird ganz nach rechts geschoben) */}
+        <div className="hidden md:flex items-center space-x-8">
           <div className="flex items-center space-x-4">
             <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
             <Link href="/blog" className="hover:text-gray-300 transition-colors">Blog</Link>
