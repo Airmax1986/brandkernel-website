@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import SolutionsSection from '@/components/SolutionsSection';
 import WaitlistForm from '@/components/WaitlistForm';
 import CtaButton from '@/components/CtaButton';
+import { BrandChatbot } from '@/components/chat';
 
 export const metadata: Metadata = {
   title: 'BrandKernel - Transform Your Brand',
@@ -31,81 +32,89 @@ export default function HomePage() {
       {/* Header */}
       <Header variant="transparent" fixed={true} />
 
-      {/* Hero Section */}
+      {/* Hero Section with Chatbot */}
       <main>
         <section id="home" className="relative pt-20 pb-section-padding bg-gradient-to-br from-brand-white via-brand-light to-brand-white">
           <div className="container-ultra">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               
-              {/* Hero Heading with improved spacing */}
-              <h1 className="text-hero-xl text-brand-black h1-spacing">
-                Transform Your Brand Into a 
-                <span className="text-gradient-brand"> Powerful Story</span>
-              </h1>
-              
-              {/* Hero Description with more space from h1 */}
-              <p className="text-body-lg text-neutral-600 max-w-2xl mx-auto mb-12 leading-relaxed">
-                We help businesses create memorable brands that connect with their audience, 
-                drive growth, and stand out in today's competitive marketplace.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <CtaButton 
-                  variant="primary" 
-                  size="lg"
-                  onClick={() => {
-                    const solutionsElement = document.getElementById('solutions');
-                    if (solutionsElement) {
-                      solutionsElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Explore Solutions
-                </CtaButton>
+              {/* Left: Hero Content */}
+              <div className="text-center lg:text-left">
+                {/* Hero Heading with improved spacing */}
+                <h1 className="text-hero-xl text-brand-black h1-spacing">
+                  Transform Your Brand Into a 
+                  <span className="text-gradient-brand"> Powerful Story</span>
+                </h1>
                 
-                <CtaButton 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => {
-                    const waitlistElement = document.getElementById('waitlist');
-                    if (waitlistElement) {
-                      waitlistElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Join Waitlist
-                </CtaButton>
+                {/* Hero Description with more space from h1 */}
+                <p className="text-body-lg text-neutral-600 mb-12 leading-relaxed max-w-xl lg:max-w-none">
+                  We help businesses create memorable brands that connect with their audience, 
+                  drive growth, and stand out in today's competitive marketplace.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-16">
+                  <CtaButton 
+                    variant="primary" 
+                    size="lg"
+                    onClick={() => {
+                      const solutionsElement = document.getElementById('solutions');
+                      if (solutionsElement) {
+                        solutionsElement.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    Explore Solutions
+                  </CtaButton>
+                  
+                  <CtaButton 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => {
+                      const waitlistElement = document.getElementById('waitlist');
+                      if (waitlistElement) {
+                        waitlistElement.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    Join Waitlist
+                  </CtaButton>
+                </div>
+
+                {/* Social Proof */}
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 text-neutral-500">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div 
+                          key={i}
+                          className="w-8 h-8 rounded-full bg-gradient-brand border-2 border-brand-white flex items-center justify-center text-xs font-semibold text-brand-black"
+                        >
+                          {String.fromCharCode(64 + i)}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium">247+ people already joined</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg
+                        key={star}
+                        className="w-4 h-4 text-brand-green fill-current"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                    <span className="text-sm font-medium ml-2">Trusted by startups</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Social Proof */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-neutral-500">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div 
-                        key={i}
-                        className="w-8 h-8 rounded-full bg-gradient-brand border-2 border-brand-white flex items-center justify-center text-xs font-semibold text-brand-black"
-                      >
-                        {String.fromCharCode(64 + i)}
-                      </div>
-                    ))}
-                  </div>
-                  <span className="text-sm font-medium">247+ people already joined</span>
-                </div>
-                
-                <div className="flex items-center gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg
-                      key={star}
-                      className="w-4 h-4 text-brand-green fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                  <span className="text-sm font-medium ml-2">Trusted by startups</span>
-                </div>
+              {/* Right: Brand Chatbot */}
+              <div className="flex justify-center lg:justify-end">
+                <BrandChatbot />
               </div>
             </div>
           </div>
