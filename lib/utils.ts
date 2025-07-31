@@ -426,14 +426,22 @@ export function groupBy<T, K extends string | number>(
 }
 
 /**
- * Remove duplicates from array
+ * Remove duplicates from array (ES5 compatible)
  * @param array - Array with potential duplicates
  * @param keyFn - Optional function to determine uniqueness
  * @returns Array without duplicates
  */
 export function unique<T>(array: T[], keyFn?: (item: T) => any): T[] {
   if (!keyFn) {
-    return [...new Set(array)];
+    // ES5 compatible version without spread operator
+    const seen: T[] = [];
+    return array.filter(item => {
+      if (seen.indexOf(item) === -1) {
+        seen.push(item);
+        return true;
+      }
+      return false;
+    });
   }
   
   const seen = new Set();
