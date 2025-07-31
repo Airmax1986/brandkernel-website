@@ -20,11 +20,14 @@ export interface LinkButtonProps extends ButtonProps {
 }
 
 export interface CtaButtonProps {
-  href: string;
   children: ReactNode;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  href?: string;
+  disabled?: boolean;
+  loading?: boolean;
+  onClick?: () => void;
 }
 
 export interface HeaderProps {
@@ -84,6 +87,7 @@ export interface WaitlistApiResponse extends ApiResponse {
     email: string;
     position?: number;
     totalSignups?: number;
+    emailSent?: boolean;
   };
 }
 
@@ -189,7 +193,7 @@ export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64;
 
 // Brand-specific types
-export type BrandColor = 'brand-blue' | 'white' | 'black' | 'gray-50' | 'gray-100' | 'gray-200' | 'gray-300' | 'gray-400' | 'gray-500' | 'gray-600' | 'gray-700' | 'gray-800' | 'gray-900';
+export type BrandColor = 'brand-white' | 'brand-light' | 'brand-green' | 'brand-purple' | 'brand-black' | 'neutral-50' | 'neutral-100' | 'neutral-200' | 'neutral-300' | 'neutral-400' | 'neutral-500' | 'neutral-600' | 'neutral-700' | 'neutral-800' | 'neutral-900';
 
 // Animation types für Framer Motion
 export interface AnimationProps {
