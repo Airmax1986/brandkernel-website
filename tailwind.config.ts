@@ -5,23 +5,292 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./types/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      // ==========================================================================
+      // SPACING SYSTEM
+      // ==========================================================================
       spacing: {
-        // Der Seitenrand wird exakt auf 1.5rem gesetzt
-        'page-margin': '1.5rem',
-        'page-gutter': '1.5rem',
+        // Brand-specific spacing for consistent layouts
+        'page-margin': '1.5rem',      // 24px - Seitenrand
+        'page-gutter': '1.5rem',      // 24px - Gutter zwischen Elementen
+        'section-padding': '3rem',    // 48px - Section Padding
+        'card-padding': '2rem',       // 32px - Card interne Abstände
       },
+
+      // ==========================================================================
+      // TYPOGRAPHY SYSTEM
+      // ==========================================================================
       fontSize: {
-        'header': '1rem',
-        'hero': '2rem',
+        // Brand-specific text sizes
+        'header': ['1rem', { lineHeight: '1.5', fontWeight: '600' }],      // 16px
+        'hero': ['2rem', { lineHeight: '1.2', fontWeight: '700' }],        // 32px
+        'hero-lg': ['2.5rem', { lineHeight: '1.1', fontWeight: '700' }],   // 40px
+        'hero-xl': ['3rem', { lineHeight: '1.1', fontWeight: '700' }],     // 48px
+        'subheading': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }], // 20px
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }],                    // 18px
+        'caption': ['0.875rem', { lineHeight: '1.4' }],                    // 14px
       },
+
+      // ==========================================================================
+      // COLOR SYSTEM
+      // ==========================================================================
       colors: {
-        'brand-blue': '#4A4AFF',
+        // Primary Brand Colors
+        'brand-blue': {
+          50: '#f0f0ff',
+          100: '#e0e0ff',
+          200: '#c7c7ff',
+          300: '#a3a3ff',
+          400: '#7a7aff',
+          500: '#4A4AFF',  // Main brand color
+          600: '#3d3df5',
+          700: '#3030e8',
+          800: '#2828d4',
+          900: '#1f1faa',
+        },
+        
+        // Gradient Colors for CTAs
+        'gradient': {
+          'orange': '#f97316',      // orange-500
+          'fuchsia': '#d946ef',     // fuchsia-500
+          'purple': '#9333ea',      // purple-600
+        },
+
+        // Semantic Colors
+        'success': {
+          50: '#f0fdf4',
+          500: '#22c55e',
+          600: '#16a34a',
+        },
+        'warning': {
+          50: '#fffbeb',
+          500: '#f59e0b',
+          600: '#d97706',
+        },
+        'error': {
+          50: '#fef2f2',
+          500: '#ef4444',
+          600: '#dc2626',
+        },
+
+        // Neutral Grays (enhanced)
+        'neutral': {
+          25: '#fafafa',
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+          950: '#0d1117',
+        }
+      },
+
+      // ==========================================================================
+      // BACKGROUND PATTERNS
+      // ==========================================================================
+      backgroundImage: {
+        'gradient-brand': 'linear-gradient(135deg, #f97316 0%, #d946ef 50%, #9333ea 100%)',
+        'gradient-brand-subtle': 'linear-gradient(135deg, #fed7aa 0%, #f3e8ff 50%, #e0e7ff 100%)',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+
+      // ==========================================================================
+      // SHADOWS SYSTEM
+      // ==========================================================================
+      boxShadow: {
+        // Custom shadows for brand consistency
+        'brand-sm': '0 2px 4px 0 rgba(74, 74, 255, 0.1)',
+        'brand': '0 4px 6px -1px rgba(74, 74, 255, 0.1), 0 2px 4px -1px rgba(74, 74, 255, 0.06)',
+        'brand-md': '0 10px 15px -3px rgba(74, 74, 255, 0.1), 0 4px 6px -2px rgba(74, 74, 255, 0.05)',
+        'brand-lg': '0 20px 25px -5px rgba(74, 74, 255, 0.1), 0 10px 10px -5px rgba(74, 74, 255, 0.04)',
+        'brand-xl': '0 25px 50px -12px rgba(74, 74, 255, 0.25)',
+        
+        // Glow effects
+        'glow-sm': '0 0 10px rgba(74, 74, 255, 0.3)',
+        'glow': '0 0 20px rgba(74, 74, 255, 0.4)',
+        'glow-lg': '0 0 30px rgba(74, 74, 255, 0.5)',
+        
+        // Soft shadows
+        'soft': '0 2px 15px rgba(0, 0, 0, 0.08)',
+        'soft-lg': '0 10px 40px rgba(0, 0, 0, 0.12)',
+      },
+
+      // ==========================================================================
+      // ANIMATION SYSTEM
+      // ==========================================================================
+      animation: {
+        // Custom animations for enhanced UX
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'fade-in-up': 'fadeInUp 0.6s ease-out',
+        'fade-in-down': 'fadeInDown 0.6s ease-out',
+        'slide-in-left': 'slideInLeft 0.5s ease-out',
+        'slide-in-right': 'slideInRight 0.5s ease-out',
+        'scale-in': 'scaleIn 0.3s ease-out',
+        'bounce-gentle': 'bounceGentle 2s infinite',
+        'pulse-brand': 'pulseBrand 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'gradient-shift': 'gradientShift 3s ease-in-out infinite',
+      },
+
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInDown: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        bounceGentle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        pulseBrand: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(74, 74, 255, 0.7)' },
+          '70%': { boxShadow: '0 0 0 10px rgba(74, 74, 255, 0)' },
+        },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+
+      // ==========================================================================
+      // RESPONSIVE BREAKPOINTS
+      // ==========================================================================
+      screens: {
+        'xs': '475px',    // Extra small devices
+        'sm': '640px',    // Small devices
+        'md': '768px',    // Medium devices
+        'lg': '1024px',   // Large devices
+        'xl': '1280px',   // Extra large devices
+        '2xl': '1536px',  // 2X large devices
+        '3xl': '1920px',  // Ultra wide
+      },
+
+      // ==========================================================================
+      // BORDER RADIUS SYSTEM
+      // ==========================================================================
+      borderRadius: {
+        'brand': '12px',
+        'brand-lg': '16px',
+        'brand-xl': '24px',
+      },
+
+      // ==========================================================================
+      // BACKDROP FILTERS
+      // ==========================================================================
+      backdropBlur: {
+        'brand': '12px',
+      },
+
+      // ==========================================================================
+      // ASPECT RATIOS
+      // ==========================================================================
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '3/2': '3 / 2',
+        '2/3': '2 / 3',
+        '9/16': '9 / 16',
+      },
+
+      // ==========================================================================
+      // Z-INDEX SYSTEM
+      // ==========================================================================
+      zIndex: {
+        '60': '60',
+        '70': '70',
+        '80': '80',
+        '90': '90',
+        '100': '100',
+      },
+
+      // ==========================================================================
+      // TRANSFORM SYSTEM
+      // ==========================================================================
+      scale: {
+        '102': '1.02',
+        '103': '1.03',
+      },
+
+      // ==========================================================================
+      // TRANSITION SYSTEM
+      // ==========================================================================
+      transitionDuration: {
+        '400': '400ms',
+        '600': '600ms',
+      },
+
+      transitionTimingFunction: {
+        'bounce-in': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Add custom utilities
+    function({ addUtilities }: any) {
+      addUtilities({
+        // Custom text gradients
+        '.text-gradient-brand': {
+          background: 'linear-gradient(135deg, #f97316 0%, #d946ef 50%, #9333ea 100%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+        },
+        
+        // Custom glass morphism
+        '.glass': {
+          background: 'rgba(255, 255, 255, 0.1)',
+          'backdrop-filter': 'blur(12px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+        },
+        
+        // Custom scrollbar
+        '.scrollbar-thin': {
+          'scrollbar-width': 'thin',
+          'scrollbar-color': '#4A4AFF transparent',
+        },
+        
+        '.scrollbar-thin::-webkit-scrollbar': {
+          width: '6px',
+        },
+        
+        '.scrollbar-thin::-webkit-scrollbar-track': {
+          background: 'transparent',
+        },
+        
+        '.scrollbar-thin::-webkit-scrollbar-thumb': {
+          'background-color': '#4A4AFF',
+          'border-radius': '3px',
+        },
+      });
+    },
+  ],
 };
+
 export default config;
