@@ -2,15 +2,12 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    // 1. Der <header> ist jetzt der vollflächige Container.
-    // Er nimmt die volle Breite (w-full) und wendet den Seitenrand (px-page-margin) an.
-    <header className="absolute top-0 left-0 right-0 z-20 py-4 w-full px-page-margin">
+    // Die äußere <header>-Box: Immer 100% breit, KEIN seitlicher Rand (px).
+    <header className="absolute top-0 left-0 right-0 z-20 py-4 w-full">
       
-      {/* 2. Innerhalb des Headers erstellen wir einen neuen Container, der die Maximalbreite hat
-          und sich zentriert. Dieser innere Container wird unser Grid. */}
-      <div className="w-full max-w-[1920px] mx-auto grid grid-cols-8 gap-x-page-gutter items-center text-header font-bold">
+      {/* Die innere <div>-Box: Hat die Maximalbreite, die Zentrierung UND den Seitenrand. */}
+      <div className="w-full max-w-[1920px] mx-auto px-page-margin grid grid-cols-8 gap-x-page-gutter items-center text-header font-bold">
         
-        {/* Die Grid-Elemente bleiben unverändert */}
         <div className="col-span-2">
           <Link href="/">BrandKernel</Link>
         </div>
