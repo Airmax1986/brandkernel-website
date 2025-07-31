@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import SolutionsSection from '@/components/SolutionsSection';
 import WaitlistForm from '@/components/WaitlistForm';
 import CtaButton from '@/components/CtaButton';
-import { BrandChatbot } from '@/components/chat/BrandChatbot';
+import BrandChatbot from '@/components/BrandChatbot';
 
 export const metadata: Metadata = {
   title: 'BrandKernel - Transform Your Brand',
