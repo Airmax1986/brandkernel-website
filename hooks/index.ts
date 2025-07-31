@@ -1,5 +1,5 @@
-// hooks/useLocalStorage.ts
-import { useState, useEffect, useCallback } from 'react';
+// hooks/index.ts
+import { useState, useEffect, useCallback, useRef, RefObject } from 'react';
 
 /**
  * Custom hook for localStorage with SSR safety and type support
@@ -62,7 +62,6 @@ export function useLocalStorage<T>(
   return [storedValue, setValue, removeValue];
 }
 
-// hooks/useSessionStorage.ts
 /**
  * Custom hook for sessionStorage with SSR safety and type support
  * Similar to useLocalStorage but uses sessionStorage (cleared when tab closes)
@@ -115,7 +114,6 @@ export function useSessionStorage<T>(
   return [storedValue, setValue, removeValue];
 }
 
-// hooks/useDebounce.ts
 /**
  * Custom hook to debounce a value
  * Useful for search inputs, API calls, etc.
@@ -135,9 +133,6 @@ export function useDebounce<T>(value: T, delay: number): T {
 
   return debouncedValue;
 }
-
-// hooks/useClickOutside.ts
-import { useRef, useEffect, RefObject } from 'react';
 
 /**
  * Custom hook to detect clicks outside of a component
@@ -164,7 +159,6 @@ export function useClickOutside<T extends HTMLElement = HTMLElement>(
   return ref;
 }
 
-// hooks/useKeyPress.ts
 /**
  * Custom hook to detect key presses
  * Useful for keyboard shortcuts, modal close on ESC, etc.
@@ -184,7 +178,6 @@ export function useKeyPress(targetKey: string, handler: () => void): void {
   }, [targetKey, handler]);
 }
 
-// hooks/useScrollPosition.ts
 /**
  * Custom hook to track scroll position
  * Useful for scroll-triggered animations, sticky headers, etc.
@@ -209,7 +202,6 @@ export function useScrollPosition(): { x: number; y: number } {
   return scrollPosition;
 }
 
-// hooks/useMediaQuery.ts
 /**
  * Custom hook to detect media query matches
  * Useful for responsive behavior in JavaScript
@@ -237,7 +229,6 @@ export function useMediaQuery(query: string): boolean {
   return matches;
 }
 
-// hooks/useIntersectionObserver.ts
 /**
  * Custom hook for Intersection Observer API
  * Useful for lazy loading, scroll animations, etc.
