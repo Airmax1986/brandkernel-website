@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import GridContainer from "./GridContainer";
 import CtaButton from "./CtaButton";
-import Chat from "@/chat"; // Adjust the import if your entry file is not index.tsx
 
 export default function Hero() {
   return (
@@ -23,7 +22,6 @@ export default function Hero() {
             <h1 className="text-9xl font-regular leading-tight">
               The Conversation That Changes Everything.
             </h1>
-             <Chat /> {/* This renders /chat right next to the h1 */}
             <p className="text-3xl font-light mt-8 max-w-6xl">
               While millions fight for attention with generic AI content, the winners go deeper. BrandKernel guides you through the strategic dialogue that uncovers your authentic positioning—the foundation successful creators, consultants, and founders build empires on.
             </p>
