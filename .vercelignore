@@ -1,0 +1,19 @@
+# Ignore the old Chat folder (replaced by components/chat)
+Chat/
+
+# Ignore common files
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore temp files
+*.tmp
+*.temp
