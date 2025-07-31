@@ -75,22 +75,6 @@ const CtaButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, CtaButtonPro
       className
     );
 
-    // Animation variants
-    const motionVariants = {
-      initial: { scale: 1 },
-      hover: { scale: 1.05, y: -2 },
-      tap: { scale: 0.95 }
-    };
-
-    // Common motion props
-    const motionProps = {
-      variants: motionVariants,
-      initial: "initial",
-      whileHover: disabled || loading ? "initial" : "hover",
-      whileTap: disabled || loading ? "initial" : "tap",
-      transition: { duration: 0.2, ease: "easeOut" }
-    };
-
     // Button content
     const buttonContent = (
       <>
@@ -104,35 +88,78 @@ const CtaButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, CtaButtonPro
       const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:');
       
       return (
-        <motion.a
+        <a
           href={href}
-          ref={ref as React.Ref<HTMLAnchorElement>}
           className={buttonClasses}
           target={isExternal ? '_blank' : undefined}
           rel={isExternal ? 'noopener noreferrer' : undefined}
           aria-disabled={loading}
-          {...motionProps}
-          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          style={{
+            transform: 'scale(1)',
+            transition: 'all 0.2s ease-out'
+          }}
+          onMouseEnter={(e) => {
+            if (!disabled && !loading) {
+              e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!disabled && !loading) {
+              e.currentTarget.style.transform = 'scale(1) translateY(0px)';
+            }
+          }}
+          onMouseDown={(e) => {
+            if (!disabled && !loading) {
+              e.currentTarget.style.transform = 'scale(0.95) translateY(0px)';
+            }
+          }}
+          onMouseUp={(e) => {
+            if (!disabled && !loading) {
+              e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+            }
+          }}
         >
           {buttonContent}
-        </motion.a>
+        </a>
       );
     }
 
     // Render as button
     return (
-      <motion.button
+      <button
         ref={ref as React.Ref<HTMLButtonElement>}
         type="button"
         disabled={disabled || loading}
         className={buttonClasses}
         onClick={onClick}
         aria-disabled={disabled || loading}
-        {...motionProps}
-        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+        style={{
+          transform: 'scale(1)',
+          transition: 'all 0.2s ease-out'
+        }}
+        onMouseEnter={(e) => {
+          if (!disabled && !loading) {
+            e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!disabled && !loading) {
+            e.currentTarget.style.transform = 'scale(1) translateY(0px)';
+          }
+        }}
+        onMouseDown={(e) => {
+          if (!disabled && !loading) {
+            e.currentTarget.style.transform = 'scale(0.95) translateY(0px)';
+          }
+        }}
+        onMouseUp={(e) => {
+          if (!disabled && !loading) {
+            e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+          }
+        }}
       >
         {buttonContent}
-      </motion.button>
+      </button>
     );
   }
 );
