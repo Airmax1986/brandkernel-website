@@ -25,38 +25,47 @@ const config: Config = {
       // ==========================================================================
       fontSize: {
         // Brand-specific text sizes
-        'header': ['1rem', { lineHeight: '1.5', fontWeight: '600' }],      // 16px
-        'hero': ['2rem', { lineHeight: '1.2', fontWeight: '700' }],        // 32px
-        'hero-lg': ['2.5rem', { lineHeight: '1.1', fontWeight: '700' }],   // 40px
-        'hero-xl': ['3rem', { lineHeight: '1.1', fontWeight: '700' }],     // 48px
-        'subheading': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }], // 20px
-        'body-lg': ['1.125rem', { lineHeight: '1.6' }],                    // 18px
-        'caption': ['0.875rem', { lineHeight: '1.4' }],                    // 14px
+        'nav': ['1.3rem', { lineHeight: '1.5', fontWeight: '500' }],          // 20.8px - Navigation
+        'header': ['1rem', { lineHeight: '1.5', fontWeight: '600' }],         // 16px
+        'hero': ['2rem', { lineHeight: '1.1', fontWeight: '700' }],           // 32px - Tighter line-height for h1
+        'hero-lg': ['2.5rem', { lineHeight: '1.1', fontWeight: '700' }],      // 40px
+        'hero-xl': ['3rem', { lineHeight: '1.1', fontWeight: '700' }],        // 48px
+        'subheading': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }],  // 20px
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }],                       // 18px
+        'caption': ['0.875rem', { lineHeight: '1.4' }],                       // 14px
       },
 
       // ==========================================================================
-      // COLOR SYSTEM
+      // COLOR SYSTEM - NEW BRAND COLORS
       // ==========================================================================
       colors: {
-        // Primary Brand Colors
+        // Primary Brand Colors (NEW)
+        'brand': {
+          'white': '#FFFFFF',      // Pure white
+          'light': '#EEEEF0',      // Light gray
+          'green': '#DAFF96',      // Brand green  
+          'purple': '#957FFF',     // Brand purple
+          'black': '#000000',      // Pure black
+        },
+        
+        // Gradient Colors for CTAs (NEW)
+        'gradient': {
+          'from': '#DAFF96',       // Green start
+          'to': '#957FFF',         // Purple end
+        },
+
+        // Legacy colors for compatibility
         'brand-blue': {
           50: '#f0f0ff',
           100: '#e0e0ff',
           200: '#c7c7ff',
           300: '#a3a3ff',
           400: '#7a7aff',
-          500: '#4A4AFF',  // Main brand color
-          600: '#3d3df5',
-          700: '#3030e8',
-          800: '#2828d4',
-          900: '#1f1faa',
-        },
-        
-        // Gradient Colors for CTAs
-        'gradient': {
-          'orange': '#f97316',      // orange-500
-          'fuchsia': '#d946ef',     // fuchsia-500
-          'purple': '#9333ea',      // purple-600
+          500: '#957FFF',  // Updated to new purple
+          600: '#8a73f5',
+          700: '#7d66e8',
+          800: '#7059d4',
+          900: '#5a47aa',
         },
 
         // Semantic Colors
@@ -79,7 +88,7 @@ const config: Config = {
         // Neutral Grays (enhanced)
         'neutral': {
           25: '#fafafa',
-          50: '#f9fafb',
+          50: '#EEEEF0',           // Updated to brand light
           100: '#f3f4f6',
           200: '#e5e7eb',
           300: '#d1d5db',
@@ -89,16 +98,16 @@ const config: Config = {
           700: '#374151',
           800: '#1f2937',
           900: '#111827',
-          950: '#0d1117',
+          950: '#000000',          // Updated to brand black
         }
       },
 
       // ==========================================================================
-      // BACKGROUND PATTERNS
+      // BACKGROUND PATTERNS - UPDATED GRADIENTS
       // ==========================================================================
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(135deg, #f97316 0%, #d946ef 50%, #9333ea 100%)',
-        'gradient-brand-subtle': 'linear-gradient(135deg, #fed7aa 0%, #f3e8ff 50%, #e0e7ff 100%)',
+        'gradient-brand': 'linear-gradient(135deg, #DAFF96 0%, #957FFF 100%)',
+        'gradient-brand-subtle': 'linear-gradient(135deg, #DAFF96 0%, #EEEEF0 50%, #957FFF 100%)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
@@ -108,16 +117,16 @@ const config: Config = {
       // ==========================================================================
       boxShadow: {
         // Custom shadows for brand consistency
-        'brand-sm': '0 2px 4px 0 rgba(74, 74, 255, 0.1)',
-        'brand': '0 4px 6px -1px rgba(74, 74, 255, 0.1), 0 2px 4px -1px rgba(74, 74, 255, 0.06)',
-        'brand-md': '0 10px 15px -3px rgba(74, 74, 255, 0.1), 0 4px 6px -2px rgba(74, 74, 255, 0.05)',
-        'brand-lg': '0 20px 25px -5px rgba(74, 74, 255, 0.1), 0 10px 10px -5px rgba(74, 74, 255, 0.04)',
-        'brand-xl': '0 25px 50px -12px rgba(74, 74, 255, 0.25)',
+        'brand-sm': '0 2px 4px 0 rgba(149, 127, 255, 0.1)',
+        'brand': '0 4px 6px -1px rgba(149, 127, 255, 0.1), 0 2px 4px -1px rgba(149, 127, 255, 0.06)',
+        'brand-md': '0 10px 15px -3px rgba(149, 127, 255, 0.1), 0 4px 6px -2px rgba(149, 127, 255, 0.05)',
+        'brand-lg': '0 20px 25px -5px rgba(149, 127, 255, 0.1), 0 10px 10px -5px rgba(149, 127, 255, 0.04)',
+        'brand-xl': '0 25px 50px -12px rgba(149, 127, 255, 0.25)',
         
         // Glow effects
-        'glow-sm': '0 0 10px rgba(74, 74, 255, 0.3)',
-        'glow': '0 0 20px rgba(74, 74, 255, 0.4)',
-        'glow-lg': '0 0 30px rgba(74, 74, 255, 0.5)',
+        'glow-sm': '0 0 10px rgba(149, 127, 255, 0.3)',
+        'glow': '0 0 20px rgba(149, 127, 255, 0.4)',
+        'glow-lg': '0 0 30px rgba(149, 127, 255, 0.5)',
         
         // Soft shadows
         'soft': '0 2px 15px rgba(0, 0, 0, 0.08)',
@@ -128,7 +137,6 @@ const config: Config = {
       // ANIMATION SYSTEM
       // ==========================================================================
       animation: {
-        // Custom animations for enhanced UX
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'fade-in-up': 'fadeInUp 0.6s ease-out',
         'fade-in-down': 'fadeInDown 0.6s ease-out',
@@ -170,8 +178,8 @@ const config: Config = {
           '50%': { transform: 'translateY(-5px)' },
         },
         pulseBrand: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(74, 74, 255, 0.7)' },
-          '70%': { boxShadow: '0 0 0 10px rgba(74, 74, 255, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(149, 127, 255, 0.7)' },
+          '70%': { boxShadow: '0 0 0 10px rgba(149, 127, 255, 0)' },
         },
         gradientShift: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -183,22 +191,29 @@ const config: Config = {
       // RESPONSIVE BREAKPOINTS
       // ==========================================================================
       screens: {
-        'xs': '475px',    // Extra small devices
-        'sm': '640px',    // Small devices
-        'md': '768px',    // Medium devices
-        'lg': '1024px',   // Large devices
-        'xl': '1280px',   // Extra large devices
-        '2xl': '1536px',  // 2X large devices
-        '3xl': '1920px',  // Ultra wide
+        'xs': '475px',
+        'sm': '640px',
+        'md': '768px', 
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1920px',    // For ultra-wide layouts
       },
 
       // ==========================================================================
       // BORDER RADIUS SYSTEM
       // ==========================================================================
       borderRadius: {
-        'brand': '12px',
-        'brand-lg': '16px',
-        'brand-xl': '24px',
+        'brand': '0.625rem',      // 10px - Updated for solution boxes
+        'brand-lg': '1rem',       // 16px  
+        'brand-xl': '1.5rem',     // 24px
+      },
+
+      // ==========================================================================
+      // BORDER WIDTH SYSTEM
+      // ==========================================================================
+      borderWidth: {
+        '1': '0.0625rem',         // 1px in rem
       },
 
       // ==========================================================================
@@ -249,15 +264,30 @@ const config: Config = {
         'bounce-in': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
+
+      // ==========================================================================
+      // LAYOUT SYSTEM - 1920px with 1.5rem margins
+      // ==========================================================================
+      maxWidth: {
+        'ultra': '1920px',        // Max width for ultra-wide
+        'content': 'calc(1920px - 3rem)', // 1920px - 2 * 1.5rem margins
+      },
+
+      // ==========================================================================
+      // SPACING FOR TYPOGRAPHY
+      // ==========================================================================
+      margin: {
+        'h1-bottom': '2rem',      // More space after h1
+      },
     },
   },
   plugins: [
     // Add custom utilities
     function({ addUtilities }: any) {
       addUtilities({
-        // Custom text gradients
+        // Custom text gradients with new brand colors
         '.text-gradient-brand': {
-          background: 'linear-gradient(135deg, #f97316 0%, #d946ef 50%, #9333ea 100%)',
+          background: 'linear-gradient(135deg, #DAFF96 0%, #957FFF 100%)',
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
           'background-clip': 'text',
@@ -273,7 +303,7 @@ const config: Config = {
         // Custom scrollbar
         '.scrollbar-thin': {
           'scrollbar-width': 'thin',
-          'scrollbar-color': '#4A4AFF transparent',
+          'scrollbar-color': '#957FFF transparent',
         },
         
         '.scrollbar-thin::-webkit-scrollbar': {
@@ -285,8 +315,23 @@ const config: Config = {
         },
         
         '.scrollbar-thin::-webkit-scrollbar-thumb': {
-          'background-color': '#4A4AFF',
+          'background-color': '#957FFF',
           'border-radius': '3px',
+        },
+
+        // Ultra-wide layout utilities
+        '.container-ultra': {
+          'max-width': '1920px',
+          'margin-left': 'auto',
+          'margin-right': 'auto',
+          'padding-left': '1.5rem',
+          'padding-right': '1.5rem',
+        },
+
+        // Typography spacing utilities
+        '.h1-spacing': {
+          'line-height': '1.1',
+          'margin-bottom': '2rem',
         },
       });
     },
