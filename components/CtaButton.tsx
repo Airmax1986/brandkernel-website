@@ -1,89 +1,142 @@
-import Link from 'next/link';
-import React from 'react';
+'use client';
+
+import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
 import { CtaButtonProps } from '@/types';
+import { cn } from '@/lib/utils';
 
 /**
- * CTA Button Component with multiple variants and sizes
- * Supports internal and external links with proper accessibility
+ * Enhanced CTA Button Component with new brand colors
+ * Features: Multiple variants, sizes, states, accessibility, animations
  */
-export default function CtaButton({ 
-  href, 
-  children, 
-  className = '',
-  variant = 'primary',
-  size = 'md'
-}: CtaButtonProps) {
-  // Base styles that apply to all variants
-  const baseStyles = `
-    inline-block text-center font-semibold 
-    rounded-full transition-all duration-200 ease-in-out 
-    hover:scale-105 active:scale-95
-    focus:outline-none focus:ring-2 focus:ring-offset-2
-    shadow-lg hover:shadow-xl
-    disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
-  `;
+const CtaButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, CtaButtonProps>(
+  ({ 
+    children, 
+    variant = 'primary', 
+    size = 'md', 
+    href,
+    disabled = false,
+    loading = false,
+    className,
+    onClick,
+    ...props 
+  }, ref) => {
+    
+    // Base styles
+    const baseStyles = "inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed";
+    
+    // Variant styles with new brand colors
+    const variantStyles = {
+      primary: "bg-gradient-brand text-brand-black hover:shadow-brand-md focus:ring-brand-purple disabled:opacity-50",
+      secondary: "bg-brand-white text-brand-black border-1 border-brand-light hover:bg-brand-light hover:shadow-brand focus:ring-brand-purple disabled:opacity-50",
+      outline: "bg-transparent text-brand-purple border-1 border-brand-purple hover:bg-brand-purple hover:text-brand-white focus:ring-brand-purple disabled:opacity-50",
+      ghost: "bg-transparent text-brand-black hover:bg-brand-light focus:ring-brand-purple disabled:opacity-50",
+      danger: "bg-error-500 text-brand-white hover:bg-error-600 focus:ring-error-500 disabled:opacity-50"
+    };
 
-  // Size variants
-  const sizeStyles = {
-    sm: 'py-2 px-6 text-sm',
-    md: 'py-4 px-8 text-xl',
-    lg: 'py-5 px-10 text-2xl'
-  };
+    // Size styles
+    const sizeStyles = {
+      sm: "px-3 py-1.5 text-sm rounded-brand",
+      md: "px-6 py-2.5 text-base rounded-brand",
+      lg: "px-8 py-3 text-lg rounded-brand-lg",
+      xl: "px-10 py-4 text-xl rounded-brand-lg"
+    };
 
-  // Color variants
-  const variantStyles = {
-    primary: `
-      text-white
-      bg-gradient-to-r from-orange-500 via-fuchsia-500 to-purple-600
-      hover:from-orange-600 hover:via-fuchsia-600 hover:to-purple-700
-      focus:ring-purple-500
-    `,
-    secondary: `
-      text-brand-blue border-2 border-brand-blue
-      bg-transparent hover:bg-brand-blue hover:text-white
-      focus:ring-brand-blue
-    `,
-    outline: `
-      text-gray-700 border-2 border-gray-300
-      bg-transparent hover:bg-gray-50 hover:border-gray-400
-      focus:ring-gray-500
-    `
-  };
-
-  // Combine all styles
-  const combinedStyles = `
-    ${baseStyles}
-    ${sizeStyles[size]}
-    ${variantStyles[variant]}
-    ${className}
-  `.replace(/\s+/g, ' ').trim();
-
-  // Check if it's an external link
-  const isExternal = href.startsWith('http') || href.startsWith('//');
-
-  // External link
-  if (isExternal) {
-    return (
-      <a
-        href={href}
-        className={combinedStyles}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={typeof children === 'string' ? children : 'External link'}
+    // Loading spinner component
+    const LoadingSpinner = () => (
+      <svg 
+        className="animate-spin -ml-1 mr-3 h-5 w-5" 
+        xmlns="http://www.w3.org/2000/svg" 
+        fill="none" 
+        viewBox="0 0 24 24"
+        aria-hidden="true"
       >
+        <circle 
+          className="opacity-25" 
+          cx="12" 
+          cy="12" 
+          r="10" 
+          stroke="currentColor" 
+          strokeWidth="4"
+        />
+        <path 
+          className="opacity-75" 
+          fill="currentColor" 
+          d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        />
+      </svg>
+    );
+
+    // Combined classes
+    const buttonClasses = cn(
+      baseStyles,
+      variantStyles[variant],
+      sizeStyles[size],
+      className
+    );
+
+    // Animation variants
+    const motionVariants = {
+      initial: { scale: 1 },
+      hover: { scale: 1.05, y: -2 },
+      tap: { scale: 0.95 }
+    };
+
+    // Common motion props
+    const motionProps = {
+      variants: motionVariants,
+      initial: "initial",
+      whileHover: disabled || loading ? "initial" : "hover",
+      whileTap: disabled || loading ? "initial" : "tap",
+      transition: { duration: 0.2, ease: "easeOut" }
+    };
+
+    // Button content
+    const buttonContent = (
+      <>
+        {loading && <LoadingSpinner />}
         {children}
-      </a>
+      </>
+    );
+
+    // Render as link if href is provided
+    if (href && !disabled) {
+      const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:');
+      
+      return (
+        <motion.a
+          href={href}
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          className={buttonClasses}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+          aria-disabled={loading}
+          {...motionProps}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {buttonContent}
+        </motion.a>
+      );
+    }
+
+    // Render as button
+    return (
+      <motion.button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        type="button"
+        disabled={disabled || loading}
+        className={buttonClasses}
+        onClick={onClick}
+        aria-disabled={disabled || loading}
+        {...motionProps}
+        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+      >
+        {buttonContent}
+      </motion.button>
     );
   }
+);
 
-  // Internal link using Next.js Link
-  return (
-    <Link
-      href={href}
-      className={combinedStyles}
-      aria-label={typeof children === 'string' ? children : 'Navigation link'}
-    >
-      {children}
-    </Link>
-  );
-}
+CtaButton.displayName = 'CtaButton';
+
+export default CtaButton;
