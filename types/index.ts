@@ -53,7 +53,7 @@ export interface FullscreenSectionProps {
 }
 
 export interface WaitlistFormProps {
-  isHidden: boolean;
+  isHidden?: boolean;
   variant?: 'floating' | 'inline';
   showCounter?: boolean;
 }
