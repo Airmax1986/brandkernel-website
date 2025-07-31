@@ -4,8 +4,8 @@ import { useState, useCallback } from "react";
 import { WaitlistFormProps, WaitlistApiResponse } from '@/types';
 
 /**
- * Enhanced Waitlist Form Component
- * Features: Better error handling, accessibility, loading states, validation
+ * Enhanced Waitlist Form Component with Resend Support
+ * Features: Better error handling, accessibility, loading states, validation, Resend integration
  */
 export default function WaitlistForm({ 
   isHidden, 
@@ -41,7 +41,7 @@ export default function WaitlistForm({
     }
   }, [validationError, isSuccess]);
 
-  // Handle form submission
+  // Handle form submission with Resend
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -70,7 +70,8 @@ export default function WaitlistForm({
         body: JSON.stringify({ 
           email: email.trim(),
           source: 'website',
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          sendWelcomeEmail: true // Enable Resend welcome email
         }),
       });
 
@@ -78,11 +79,19 @@ export default function WaitlistForm({
 
       if (response.ok && data.success) {
         setIsSuccess(true);
-        setMessage(data.message || "Successfully joined the waitlist!");
+        setMessage(data.message || "Successfully joined the waitlist! Check your email for confirmation.");
         setEmail(""); // Clear email on success
         
-        // Track success (could add analytics here)
+        // Track success
         console.log('Waitlist signup successful:', data.data);
+        
+        // Optional: Send analytics event
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'waitlist_signup', {
+            method: 'website_form',
+            email_domain: email.split('@')[1]
+          });
+        }
         
       } else {
         const errorMessage = data.error || data.message || "Failed to join waitlist";
@@ -106,11 +115,11 @@ export default function WaitlistForm({
 
   return (
     <div className={containerStyles}>
-      <div className={`${variant === 'floating' ? 'container mx-auto flex justify-center items-center gap-x-4' : 'space-y-4'}`}>
+      <div className={`${variant === 'floating' ? 'container-ultra flex justify-center items-center gap-x-4' : 'space-y-4'}`}>
         
         {/* Form Label */}
         {variant === 'floating' && (
-          <span className="font-semibold text-white" id="waitlist-label">
+          <span className="font-semibold text-brand-white" id="waitlist-label">
             Join our Waitlist
           </span>
         )}
@@ -118,7 +127,7 @@ export default function WaitlistForm({
         {/* Success State */}
         {isSuccess ? (
           <div 
-            className="flex items-center justify-center text-center bg-green-500 text-white px-4 py-2 rounded-md shadow-lg h-[42px] w-[320px]"
+            className="flex items-center justify-center text-center bg-brand-green text-brand-black px-4 py-2 rounded-brand shadow-brand-lg h-[42px] w-[320px]"
             role="status"
             aria-live="polite"
             aria-label="Success message"
@@ -137,9 +146,10 @@ export default function WaitlistForm({
             </svg>
             <span>{message}</span>
           </div>
+
         ) : (
           /* Form */
-          <form onSubmit={handleSubmit} className="flex items-center shadow-lg" noValidate>
+          <form onSubmit={handleSubmit} className="flex items-center shadow-brand-lg" noValidate>
             <div className="relative">
               <input
                 type="email"
@@ -147,10 +157,10 @@ export default function WaitlistForm({
                 onChange={handleEmailChange}
                 placeholder="name@mail.com"
                 className={`
-                  bg-white text-black text-base placeholder:text-gray-500 
-                  px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-brand-blue
-                  w-64 h-[42px] border-2 transition-colors
-                  ${validationError ? 'border-red-500 focus:ring-red-500' : 'border-gray-200'}
+                  bg-brand-white text-brand-black text-base placeholder:text-neutral-400 
+                  px-4 py-2 rounded-l-brand focus:outline-none focus:ring-2 focus:ring-brand-purple
+                  w-64 h-[42px] border-1 transition-colors
+                  ${validationError ? 'border-error-500 focus:ring-error-500' : 'border-brand-light'}
                 `}
                 required
                 disabled={isLoading}
@@ -163,7 +173,7 @@ export default function WaitlistForm({
               {validationError && (
                 <div 
                   id="email-error"
-                  className="absolute top-full left-0 mt-1 text-red-500 text-sm bg-white px-2 py-1 rounded shadow-lg z-10"
+                  className="absolute top-full left-0 mt-1 text-error-500 text-sm bg-brand-white px-2 py-1 rounded-brand shadow-brand z-10"
                   role="alert"
                   aria-live="polite"
                 >
@@ -175,11 +185,11 @@ export default function WaitlistForm({
             <button
               type="submit"
               className={`
-                bg-orange-500 text-white p-2 rounded-r-md 
-                hover:bg-orange-600 focus:bg-orange-600
-                transition-colors h-[42px] min-w-[42px]
-                focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2
-                disabled:bg-gray-400 disabled:cursor-not-allowed
+                bg-gradient-brand text-brand-black font-semibold p-2 rounded-r-brand 
+                hover:shadow-brand-md focus:shadow-brand-md
+                transition-all duration-200 h-[42px] min-w-[42px]
+                focus:outline-none focus:ring-2 focus:ring-brand-purple focus:ring-offset-2
+                disabled:opacity-50 disabled:cursor-not-allowed
                 flex items-center justify-center
               `}
               disabled={isLoading || !email.trim()}
@@ -232,7 +242,7 @@ export default function WaitlistForm({
 
         {/* Counter */}
         {variant === 'floating' && showCounter && (
-          <span className="text-orange-400 font-medium">
+          <span className="text-brand-green font-medium">
             247 people already joined
           </span>
         )}
@@ -241,7 +251,7 @@ export default function WaitlistForm({
       {/* Error Message */}
       {!isSuccess && message && (
         <div 
-          className="text-center mt-2 text-sm text-red-400 font-semibold bg-red-50 border border-red-200 rounded px-3 py-2"
+          className="text-center mt-2 text-sm text-error-500 font-semibold bg-error-50 border border-error-200 rounded-brand px-3 py-2"
           role="alert"
           aria-live="polite"
         >
