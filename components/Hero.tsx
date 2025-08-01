@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import GridContainer from "./GridContainer";
 import CtaButton from "./CtaButton";
-import { Chatbot } from "./chat/Chatbot";
+import { Chatbot } from "./chat";
 
 export default function Hero() {
   return (
