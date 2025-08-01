@@ -1,5 +1,3 @@
-'use client';
-
 import { motion } from 'framer-motion';
 
 interface ChatMessageProps {
@@ -9,29 +7,25 @@ interface ChatMessageProps {
 }
 
 export function ChatMessage({ message, isUser, timestamp }: ChatMessageProps) {
+  const userMessageStyle = "bg-black/30 backdrop-blur-md border border-purple-400/30 text-purple-100 rounded-br-lg";
+  const botMessageStyle = "bg-black/30 backdrop-blur-md border border-white/10 text-neutral-100 rounded-bl-lg";
+
+  const messageClasses = `px-4 py-3 rounded-2xl ${isUser ? userMessageStyle : botMessageStyle}`;
+  const timestampClasses = `text-xs mt-1.5 ${isUser ? 'text-right' : 'text-left'} text-white/70`;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-3`}
+      className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}
     >
-      <div className="max-w-[80%] flex flex-col">
-        <div
-          className={`px-4 py-3 rounded-brand-lg shadow-brand ${
-            isUser 
-              ? 'bg-brand-purple text-brand-white' 
-              : 'bg-brand-white text-brand-black border-1 border-brand-light'
-          }`}
-        >
-          <p className="text-sm leading-relaxed">{message}</p>
-        </div>
-        <span 
-          className={`text-xs mt-1 text-neutral-500 ${isUser ? 'text-right' : 'text-left'}`}
-        >
-          {timestamp}
-        </span>
+      <div className={`max-w-[75%] ${messageClasses}`}>
+        <p className="text-sm leading-relaxed">{message}</p>
       </div>
+      <span className={timestampClasses}>
+        {timestamp}
+      </span>
     </motion.div>
   );
 }
