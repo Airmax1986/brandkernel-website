@@ -98,7 +98,7 @@ export default function SolutionsSection() {
 
         {/* Solutions Grid */}
         <motion.div
-          ref={ref}
+          ref={ref as React.RefObject<HTMLDivElement>}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
