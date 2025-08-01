@@ -1,34 +1,26 @@
-'use client';
-
 import { motion } from 'framer-motion';
 
 export function ChatHeader() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative p-4 rounded-t-brand-lg bg-brand-light border-b border-brand-light/50"
-    >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-brand bg-gradient-brand flex items-center justify-center shadow-brand">
-            <svg className="w-5 h-5 text-brand-black" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-brand-black">Felix</h3>
-            <div className="flex items-center gap-1.5 text-xs">
-              <div className="w-2 h-2 bg-brand-green rounded-full"></div>
-              <span className="text-neutral-600">Brand Consultant</span>
-            </div>
-          </div>
+    <div className="flex items-center justify-between p-4 bg-black/30 rounded-2xl border border-white/10">
+      <div className="flex items-center gap-4">
+        {/* Avatar Icon */}
+        <div className="w-12 h-12 rounded-xl bg-purple-500/100 flex items-center justify-center border border-white/20">
+          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
         </div>
-        <div className="text-xs text-neutral-400">
-          Online
+        <div>
+          <h1 className="text-lg font-semibold text-white">Felix</h1>
+          <div className="flex items-center gap-2 text-sm text-lime-300">
+            <div className="w-2 h-2 bg-lime-300 rounded-full"></div>
+            <span>Online</span>
+          </div>
         </div>
       </div>
-    </motion.div>
+      <div className="text-xs text-white/60">
+        BrandKernel
+      </div>
+    </div>
   );
 }
