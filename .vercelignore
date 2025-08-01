@@ -1,5 +1,6 @@
-# Ignore the old Chat folder (replaced by components/chat)
+# Ignore the old Chat folder and components/chat (replaced by ChatbotConsolidated.tsx)
 Chat/
+components/chat/
 
 # Ignore common files
 .DS_Store
