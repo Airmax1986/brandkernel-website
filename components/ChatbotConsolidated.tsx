@@ -20,32 +20,38 @@ const initialMessages: Message[] = [
 ];
 
 const felixResponses = [
-  "That's an excellent brand question! Let me share some strategic insights...",
-  "From a brand positioning perspective, I'd recommend considering...",
-  "That's a common branding challenge. Here's how I'd approach it strategically...",
-  "Great question! Brand consistency is key here. Let me explain...",
-  "I love discussing brand identity! From my consulting experience...",
-  "That's where strong brand storytelling comes in. Here's what I'd suggest...",
-  "Excellent point about brand differentiation! Let me share some insights...",
-  "Brand perception is crucial here. From a strategic standpoint...",
-  "That's a smart branding consideration. I'd recommend focusing on...",
-  "Perfect timing for brand optimization! Here's my professional take...",
+  "EXAMPLE: That's an excellent brand question! Let me share some strategic insights...",
+  "EXAMPLE: From a brand positioning perspective, I'd recommend considering...",
+  "EXAMPLE: That's a common branding challenge. Here's how I'd approach it strategically...",
+  "EXAMPLE: Great question! Brand consistency is key here. Let me explain...",
+  "EXAMPLE: I love discussing brand identity! From my consulting experience...",
+  "EXAMPLE: That's where strong brand storytelling comes in. Here's what I'd suggest...",
+  "EXAMPLE: Excellent point about brand differentiation! Let me share some insights...",
+  "EXAMPLE: Brand perception is crucial here. From a strategic standpoint...",
+  "EXAMPLE: That's a smart branding consideration. I'd recommend focusing on...",
+  "EXAMPLE: Perfect timing for brand optimization! Here's my professional take...",
 ];
 
 // Chat Header Component
 function ChatHeader() {
   return (
+    // Der Header ist jetzt wieder ein solides Element für maximale Lesbarkeit.
     <div className="flex items-center justify-between p-4 bg-black/30 rounded-2xl border border-white/10">
       <div className="flex items-center gap-4">
+        {/* Das Avatar-Icon */}
         <div className="w-12 h-12 rounded-xl bg-purple-500/100 flex items-center justify-center border border-white/20">
-          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          {/* Bot icon from lucide-react */}
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
         </div>
         <div>
           <h1 className="text-lg font-semibold text-white">Felix</h1>
           <div className="flex items-center gap-2 text-sm text-lime-300">
-            <div className="w-2 h-2 bg-lime-300 rounded-full"></div>
+            {/* Circle icon from lucide-react with fill-current */}
+            <svg className="w-2 h-2 fill-current" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
             <span>Online</span>
           </div>
         </div>
@@ -65,8 +71,13 @@ interface ChatMessageProps {
 }
 
 function ChatMessage({ message, isUser, timestamp }: ChatMessageProps) {
+  // --- START DER ÄNDERUNG ---
+  // Die Benutzer-Nachricht wird jetzt auch glasig, mit einem violetten Schimmer.
   const userMessageStyle = "bg-black/30 backdrop-blur-md border border-purple-400/30 text-purple-100 rounded-br-lg";
+  
+  // Bot-Nachricht (bleibt wie im letzten Schritt)
   const botMessageStyle = "bg-black/30 backdrop-blur-md border border-white/10 text-neutral-100 rounded-bl-lg";
+  // --- ENDE DER ÄNDERUNG ---
 
   const messageClasses = `px-4 py-3 rounded-2xl ${isUser ? userMessageStyle : botMessageStyle}`;
   const timestampClasses = `text-xs mt-1.5 ${isUser ? 'text-right' : 'text-left'} text-white/70`;
@@ -113,6 +124,7 @@ function ChatInput({ onSendMessage }: ChatInputProps) {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type a message..."
+        // Dunkleres Glas und hellerer Platzhalter
         className="w-full px-5 py-3 pr-14 
                    bg-black/30 backdrop-blur-md 
                    border border-white/10 rounded-2xl 
@@ -131,12 +143,14 @@ function ChatInput({ onSendMessage }: ChatInputProps) {
                      ? 'bg-black/20 border-white/10 cursor-not-allowed' 
                      : 'bg-purple-600 border-purple-500 shadow-lg shadow-purple-600/50'}`}
       >
+        {/* Send icon from lucide-react */}
         <svg 
           className={`w-4 h-4 transition-colors ${isMessageEmpty ? 'text-neutral-500' : 'text-white'}`}
-          fill="currentColor" 
+          fill="none" 
+          stroke="currentColor" 
           viewBox="0 0 24 24"
         >
-          <path d="m2 21 21-9L2 3v7l15 2-15 2v7z"/>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m2 21 21-9L2 3v7l15 2-15 2v7z"/>
         </svg>
       </motion.button>
     </form>
@@ -185,17 +199,18 @@ export function Chatbot() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full max-w-[390px] h-[650px] flex flex-col 
+      // Haupt-Glasfenster
+      className="w-[390px] h-[650px] flex flex-col 
                  rounded-3xl shadow-2xl overflow-hidden
                  bg-black/10 backdrop-blur-2xl
                  border border-white/10"
     >
-      {/* Header */}
+      {/* Header Bereich: Kein zusätzliches Padding hier */}
       <div>
         <ChatHeader />
       </div>
       
-      {/* Messages */}
+      {/* Nachrichtenliste */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message) => (
           <ChatMessage
@@ -208,7 +223,7 @@ export function Chatbot() {
         <div ref={messagesEndRef} />
       </div>
       
-      {/* Input */}
+      {/* Input Bereich */}
       <div className="p-4 border-t border-white/10">
         <ChatInput onSendMessage={handleSendMessage} />
       </div>
